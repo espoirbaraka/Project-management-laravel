@@ -72,17 +72,16 @@
                        checked=""
                        id="remember">
                 <label class="custom-control-label"
-                       for="remember">Remember me</label>
+                       for="remember">Se souvenir de moi</label>
             </div>
         </div>
         <div class="form-group text-center">
             <button class="btn btn-primary mb-5"
-                    type="submit">Login
+                    type="submit">Se connecter
             </button>
             <br>
-            <a href="#">Forgot password?</a> <br>
-            Don't have an account? <a class="text-body text-underline"
-                                      href="signup.html">Sign up!</a>
+            Vous n'avez pas un compte? <a class="text-body text-underline"
+                                      href="signup.html">Inscrivez-vous!</a>
         </div>
     </form>
 </div>

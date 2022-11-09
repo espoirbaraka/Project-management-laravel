@@ -21,6 +21,36 @@
               novalidate>
             <div class="form-group">
                 <label class="text-label"
+                       for="email_2">Nom complet:</label>
+                <div class="input-group input-group-merge">
+                    <input id="email_2"
+                           type="email"
+                           required=""
+                           class="form-control form-control-prepended">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <span class="far fa-user"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="text-label"
+                       for="email_2">Organisation:</label>
+                <div class="input-group input-group-merge">
+                    <input id="email_2"
+                           type="email"
+                           required=""
+                           class="form-control form-control-prepended">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <span class="fa fa-home"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="text-label"
                        for="email_2">Email:</label>
                 <div class="input-group input-group-merge">
                     <input id="email_2"
@@ -61,11 +91,11 @@
             </div>
             <div class="form-group text-center">
                 <button class="btn btn-primary mb-5"
-                        type="submit">Se connecter
+                        type="submit">S'inscrire
                 </button>
                 <br>
-                Vous n'avez pas un compte? <a class="text-body text-underline"
-                                              href="/register">Inscrivez-vous!</a>
+                Vous avez déjà un compte? <a class="text-body text-underline"
+                                              href="/">Connectez-vous!</a>
             </div>
         </form>
     </div>

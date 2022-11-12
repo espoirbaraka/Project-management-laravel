@@ -17,8 +17,8 @@
         </div>
 
 
-        <form action="https://bizzark.frontted.com/index.html"
-              novalidate>
+        <form action="{{route('auth.pages.save')}}" novalidate>
+            @csrf
             <div class="form-group">
                 <label class="text-label"
                        for="email_2">Nom complet:</label>
@@ -26,7 +26,9 @@
                     <input id="email_2"
                            type="email"
                            required=""
-                           class="form-control form-control-prepended">
+                           name="nom"
+                           class="form-control form-control-prepended"
+                            value="{{old('nom')}}">
                     <div class="input-group-prepend">
                         <div class="input-group-text">
                             <span class="far fa-user"></span>
@@ -41,7 +43,9 @@
                     <input id="email_2"
                            type="email"
                            required=""
-                           class="form-control form-control-prepended">
+                           name="organisation"
+                           class="form-control form-control-prepended"
+                           value="{{old('organisation')}}">
                     <div class="input-group-prepend">
                         <div class="input-group-text">
                             <span class="fa fa-home"></span>
@@ -56,7 +60,9 @@
                     <input id="email_2"
                            type="email"
                            required=""
-                           class="form-control form-control-prepended">
+                           name="email"
+                           class="form-control form-control-prepended"
+                           value="{{old('email')}}">
                     <div class="input-group-prepend">
                         <div class="input-group-text">
                             <span class="far fa-envelope"></span>
@@ -71,6 +77,7 @@
                     <input id="password_2"
                            type="password"
                            required=""
+                           name="password"
                            class="form-control form-control-prepended">
                     <div class="input-group-prepend">
                         <div class="input-group-text">
@@ -95,7 +102,7 @@
                 </button>
                 <br>
                 Vous avez déjà un compte? <a class="text-body text-underline"
-                                              href="/">Connectez-vous!</a>
+                                              href="{{ route('auth.pages.login') }}">Connectez-vous!</a>
             </div>
         </form>
     </div>

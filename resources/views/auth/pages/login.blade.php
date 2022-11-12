@@ -65,7 +65,7 @@
                 </button>
                 <br>
                 Vous n'avez pas un compte? <a class="text-body text-underline"
-                                              href="/register">Inscrivez-vous!</a>
+                                              href="{{ route('auth.pages.register') }}">Inscrivez-vous!</a>
             </div>
         </form>
     </div>

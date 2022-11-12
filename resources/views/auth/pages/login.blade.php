@@ -17,22 +17,35 @@
         </div>
 
 
-        <form action="https://bizzark.frontted.com/index.html"
-              novalidate>
+        <form action="{{route('auth.pages.check')}}" method="POST" novalidate>
+            @if(Session::get('success'))
+                <div class="alert alert-success">
+                    {{Session::get('success')}}
+                </div>
+            @endif
+
+            @if(Session::get('fail'))
+                <div class="alert alert-danger">
+                    {{Session::get('fail')}}
+                </div>
+            @endif
+            @csrf
             <div class="form-group">
                 <label class="text-label"
                        for="email_2">Email:</label>
                 <div class="input-group input-group-merge">
                     <input id="email_2"
                            type="email"
-                           required=""
-                           class="form-control form-control-prepended">
+                           name="email"
+                           class="form-control form-control-prepended"
+                           value="{{old('email')}}">
                     <div class="input-group-prepend">
                         <div class="input-group-text">
                             <span class="far fa-envelope"></span>
                         </div>
                     </div>
                 </div>
+                <span class="text-danger">@error('email'){{$message}} @enderror</span>
             </div>
             <div class="form-group">
                 <label class="text-label"
@@ -40,14 +53,16 @@
                 <div class="input-group input-group-merge">
                     <input id="password_2"
                            type="password"
-                           required=""
-                           class="form-control form-control-prepended">
+                           name="password"
+                           class="form-control form-control-prepended"
+                           value="{{old('password')}}">
                     <div class="input-group-prepend">
                         <div class="input-group-text">
                             <span class="fa fa-key"></span>
                         </div>
                     </div>
                 </div>
+                <span class="text-danger">@error('password'){{$message}} @enderror</span>
             </div>
             <div class="form-group mb-5">
                 <div class="custom-control custom-checkbox">

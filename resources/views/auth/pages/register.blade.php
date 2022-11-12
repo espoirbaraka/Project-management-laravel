@@ -17,15 +17,25 @@
         </div>
 
 
-        <form action="{{route('auth.pages.save')}}" novalidate>
+        <form action="{{route('auth.pages.save')}}" method="POST" novalidate>
+            @if(Session::get('success'))
+                <div class="alert alert-success">
+                    {{Session::get('success')}}
+                </div>
+            @endif
+
+            @if(Session::get('fail'))
+                 <div class="alert alert-danger">
+                     {{Session::get('fail')}}
+                 </div>
+            @endif
             @csrf
             <div class="form-group">
                 <label class="text-label"
-                       for="email_2">Nom complet:</label>
+                       for="email_2">Nom:</label>
                 <div class="input-group input-group-merge">
                     <input id="email_2"
-                           type="email"
-                           required=""
+                           type="text"
                            name="nom"
                            class="form-control form-control-prepended"
                             value="{{old('nom')}}">
@@ -35,6 +45,41 @@
                         </div>
                     </div>
                 </div>
+                <span class="text-danger">@error('nom'){{$message}} @enderror</span>
+            </div>
+            <div class="form-group">
+                <label class="text-label"
+                       for="email_2">Post-nom:</label>
+                <div class="input-group input-group-merge">
+                    <input id="email_2"
+                           type="text"
+                           name="postnom"
+                           class="form-control form-control-prepended"
+                           value="{{old('postnom')}}">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <span class="far fa-user"></span>
+                        </div>
+                    </div>
+                </div>
+                <span class="text-danger">@error('postnom'){{$message}} @enderror</span>
+            </div>
+            <div class="form-group">
+                <label class="text-label"
+                       for="email_2">Prenom:</label>
+                <div class="input-group input-group-merge">
+                    <input id="email_2"
+                           type="text"
+                           name="prenom"
+                           class="form-control form-control-prepended"
+                           value="{{old('prenom')}}">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <span class="far fa-user"></span>
+                        </div>
+                    </div>
+                </div>
+                <span class="text-danger">@error('nom'){{$message}} @enderror</span>
             </div>
             <div class="form-group">
                 <label class="text-label"
@@ -52,6 +97,7 @@
                         </div>
                     </div>
                 </div>
+                <span class="text-danger">@error('organisation'){{$message}} @enderror</span>
             </div>
             <div class="form-group">
                 <label class="text-label"
@@ -69,6 +115,7 @@
                         </div>
                     </div>
                 </div>
+                <span class="text-danger">@error('email'){{$message}} @enderror</span>
             </div>
             <div class="form-group">
                 <label class="text-label"
@@ -85,6 +132,7 @@
                         </div>
                     </div>
                 </div>
+                <span class="text-danger">@error('password'){{$message}} @enderror</span>
             </div>
             <div class="form-group mb-5">
                 <div class="custom-control custom-checkbox">

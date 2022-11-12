@@ -19,7 +19,7 @@ Route::get('/', [MainController::class, 'login'])->name('auth.pages.login');
 
 Route::get('/register', [MainController::class, 'register'])->name('auth.pages.register');
 
-Route::get('/save', [MainController::class, 'save'])->name('auth.pages.save');
+Route::post('/save', [MainController::class, 'save'])->name('auth.pages.save');
 
 
 Route::get('/dashboard', function () {

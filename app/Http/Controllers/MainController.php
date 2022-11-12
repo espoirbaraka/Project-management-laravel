@@ -6,6 +6,7 @@ use App\Models\Admin;
 use Illuminate\Http\Request;
 use App\Models\Utilisateur;
 use Illuminate\Support\Facades\Hash;
+use MongoDB\Driver\Session;
 
 class MainController extends Controller
 {
@@ -61,5 +62,17 @@ class MainController extends Controller
                 return back()->with('fail','Mot de passe incorrect');
             }
         }
+    }
+
+    function logout(){
+        if(session()->has('LoggedUser')){
+            session()->pull('LoggedUser');
+            return redirect('/');
+        }
+    }
+
+    function dashboard(){
+        $data = ['LoggedUserInfo'=>Utilisateur::where('id','=',session('LoggedUser'))->first()];
+        return view('dashboard', $data);
     }
 }

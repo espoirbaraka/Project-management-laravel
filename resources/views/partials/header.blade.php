@@ -53,13 +53,13 @@
                         <div id="account_menu"
                              class="dropdown-menu dropdown-menu-right">
                             <div class="dropdown-item-text dropdown-item-text--lh">
-                                <div><strong>Adrian Demian</strong></div>
-                                <div>@adriandemian</div>
+                                <div><strong>{{$LoggedUserInfo['nom']}}</strong></div>
+                                <div>{{$LoggedUserInfo['email']}}</div>
                             </div>
                             <div class="dropdown-divider"></div>
 
                             <a class="dropdown-item"
-                               href="mini-login.html">Logout</a>
+                               href="{{route('auth.pages.logout')}}">Se deconnecter</a>
                         </div>
                     </li>
                 </ul>

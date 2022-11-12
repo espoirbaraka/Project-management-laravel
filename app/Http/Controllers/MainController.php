@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Admin;
 use Illuminate\Http\Request;
 use App\Models\Utilisateur;
+use Illuminate\Support\Facades\Hash;
 
 class MainController extends Controller
 {
@@ -31,13 +33,33 @@ class MainController extends Controller
         $utilisateur->prenom = $request->prenom;
         $utilisateur->email = $request->email;
         $utilisateur->organisation = $request->organisation;
-        $utilisateur->password = $request->password;
+        $utilisateur->password = Hash::make($request->password);
         $save = $utilisateur->save();
 
         if($save){
             return back()->with('success','Compte crée');
         }else{
             return back()->with('fail','Compte non-crée');
+        }
+    }
+
+    function check(Request $request){
+        $request->validate([
+            'email'=>'required|email',
+            'password'=>'required'
+        ]);
+
+        $userinfo = Utilisateur::where('email','=',$request->email)->first();
+
+        if(!$userinfo){
+            return back()->with('fail','Email introuvable');
+        }else{
+            if(Hash::check($request->password, $userinfo->password)){
+                $request->session()->put('LoggedUser', $userinfo->id);
+                return redirect('/dashboard');
+            }else{
+                return back()->with('fail','Mot de passe incorrect');
+            }
         }
     }
 }

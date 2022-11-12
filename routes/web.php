@@ -16,10 +16,9 @@ use App\Http\Controllers\MainController;
 */
 
 Route::get('/', [MainController::class, 'login'])->name('auth.pages.login');
-
 Route::get('/register', [MainController::class, 'register'])->name('auth.pages.register');
-
 Route::post('/save', [MainController::class, 'save'])->name('auth.pages.save');
+Route::post('/check', [MainController::class, 'check'])->name('auth.pages.check');
 
 
 Route::get('/dashboard', function () {

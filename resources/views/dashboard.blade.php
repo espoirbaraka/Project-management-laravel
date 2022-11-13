@@ -30,8 +30,7 @@
                                                 <nav aria-label="breadcrumb">
                                                     <ol class="breadcrumb mb-0">
                                                         <li class="breadcrumb-item"><a href="dashboard">Tableau de bord</a></li>
-                                                        <li class="breadcrumb-item active"
-                                                            aria-current="page">Tableau de bord</li>
+
                                                     </ol>
                                                 </nav>
                                                 <h1 class="m-0">Tableau de bord</h1>
@@ -51,9 +50,9 @@
                                                                 <i class="material-icons text-white icon-18pt">business</i>
                                                             </span>
                                                     </div>
-                                                    <a href="#"
+                                                    <a href="/dashboard"
                                                        class="text-dark">
-                                                        <strong>Companies</strong>
+                                                        <strong>Acceuil</strong>
                                                     </a>
                                                 </div>
                                             </div>
@@ -66,9 +65,9 @@
                                                                 <i class="material-icons text-white icon-18pt">person_add</i>
                                                             </span>
                                                     </div>
-                                                    <a href="#"
+                                                    <a href="/newprojet"
                                                        class="text-dark">
-                                                        <strong>Create New User</strong>
+                                                        <strong>Creer un projet</strong>
                                                     </a>
                                                 </div>
                                             </div>
@@ -81,9 +80,9 @@
                                                                 <i class="material-icons text-white icon-18pt">receipt</i>
                                                             </span>
                                                     </div>
-                                                    <a href="#"
+                                                    <a href="/projets"
                                                        class="text-dark">
-                                                        <strong>Manage Invoices</strong>
+                                                        <strong>Mes projets</strong>
                                                     </a>
                                                 </div>
                                             </div>
@@ -96,69 +95,9 @@
                                                                 <i class="material-icons text-white icon-18pt">monetization_on</i>
                                                             </span>
                                                     </div>
-                                                    <a href="#"
+                                                    <a href="/collaborateur"
                                                        class="text-dark">
-                                                        <strong>Earnings</strong>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 col-md-4 card-group-row__col">
-                                            <div class="card card-group-row__card card-shadow">
-                                                <div class="p-2 d-flex flex-row align-items-center">
-                                                    <div class="avatar avatar-xs mr-2">
-                                                            <span class="avatar-title rounded-circle text-center bg-purple">
-                                                                <i class="material-icons text-white icon-18pt">shop</i>
-                                                            </span>
-                                                    </div>
-                                                    <a href="#"
-                                                       class="text-dark">
-                                                        <strong>Products</strong>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 col-md-4 card-group-row__col">
-                                            <div class="card card-group-row__card card-shadow">
-                                                <div class="p-2 d-flex flex-row align-items-center">
-                                                    <div class="avatar avatar-xs mr-2">
-                                                            <span class="avatar-title rounded-circle text-center bg-warning">
-                                                                <i class="material-icons text-white icon-18pt">account_balance</i>
-                                                            </span>
-                                                    </div>
-                                                    <a href="#"
-                                                       class="text-dark">
-                                                        <strong>Account Balance</strong>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 col-md-4 card-group-row__col">
-                                            <div class="card card-group-row__card card-shadow">
-                                                <div class="p-2 d-flex flex-row align-items-center">
-                                                    <div class="avatar avatar-xs mr-2">
-                                                            <span class="avatar-title rounded-circle text-center bg-primary">
-                                                                <i class="material-icons text-white icon-18pt">assignment</i>
-                                                            </span>
-                                                    </div>
-                                                    <a href="#"
-                                                       class="text-dark">
-                                                        <strong>Assignments</strong>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 col-md-4 card-group-row__col">
-                                            <div class="card card-group-row__card card-shadow">
-                                                <div class="p-2 d-flex flex-row align-items-center">
-                                                    <div class="avatar avatar-xs mr-2">
-                                                            <span class="avatar-title rounded-circle text-center bg-danger">
-                                                                <i class="material-icons text-white icon-18pt">phone</i>
-                                                            </span>
-                                                    </div>
-                                                    <a href="#"
-                                                       class="text-dark">
-                                                        <strong>Calls</strong>
+                                                        <strong>Mes collaborateurs</strong>
                                                     </a>
                                                 </div>
                                             </div>
@@ -167,7 +106,7 @@
 
                                     <div class="card">
                                         <div class="card-header card-header-large bg-white d-flex align-items-center">
-                                            <h4 class="card-header__title flex mb-0">Earnings</h4>
+                                            <h4 class="card-header__title flex mb-0">Suivi des projets</h4>
                                             <div class="d-flex align-items-center">
                                                 <label for="chart-switch-toggle"
                                                        class="mb-0">Show affiliate:</label>

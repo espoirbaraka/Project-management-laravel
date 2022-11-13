@@ -16,9 +16,9 @@ class AuthCheck
      */
     public function handle(Request $request, Closure $next)
     {
-        if(!session()->has('LoggedUser') && ($request->path() != '/' && $request->path() != '/register' )){
-            return redirect('/')->with('fail','Vous devez vous connecter');
-        }
+//        if(!session()->has('LoggedUser') && ($request->path() != '/' && $request->path() != '/register' )){
+//            return redirect('/')->with('fail','Vous devez vous connecter');
+//        }
 
         if(session()->has('LoggedUser') && ($request->path() == '/' || $request->path() == '/register' )){
             return back();

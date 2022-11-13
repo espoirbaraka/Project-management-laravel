@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\ProjetController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,4 +24,7 @@ Route::group(['middleware'=>['AuthCheck']], function (){
     Route::get('/', [MainController::class, 'login'])->name('auth.pages.login');
     Route::get('/register', [MainController::class, 'register'])->name('auth.pages.register');
     Route::get('/dashboard', [MainController::class, 'dashboard'])->name('dashboard');
+
+    Route::get('/newprojet', [ProjetController::class, 'newprojet'])->name('newprojet');
+    Route::get('/projets', [ProjetController::class, 'projets'])->name('projets');
 });

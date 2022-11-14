@@ -21,6 +21,8 @@ class CreateProjetsTable extends Migration
             $table->text('bailleur');
             $table->dateTime('datedebut');
             $table->dateTime('datefin');
+            $table->integer('created_by');
+            $table->integer('statut');
             $table->timestamps();
         });
     }

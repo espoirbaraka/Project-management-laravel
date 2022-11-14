@@ -65,7 +65,7 @@
                                                                 <i class="material-icons text-white icon-18pt">person_add</i>
                                                             </span>
                                                     </div>
-                                                    <a href="/newprojet"
+                                                    <a href="/projet/create"
                                                        class="text-dark">
                                                         <strong>Creer un projet</strong>
                                                     </a>

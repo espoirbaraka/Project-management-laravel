@@ -25,6 +25,7 @@ Route::group(['middleware'=>['AuthCheck']], function (){
     Route::get('/register', [MainController::class, 'register'])->name('auth.pages.register');
     Route::get('/dashboard', [MainController::class, 'dashboard'])->name('dashboard');
 
-    Route::get('/newprojet', [ProjetController::class, 'newprojet'])->name('newprojet');
-    Route::get('/projets', [ProjetController::class, 'projets'])->name('projets');
+    Route::get('/projet/create', [ProjetController::class, 'create'])->name('newprojet');
+    Route::get('/projet/list', [ProjetController::class, 'index'])->name('projets');
+    Route::post('/projet/save', [ProjetController::class, 'store']);
 });

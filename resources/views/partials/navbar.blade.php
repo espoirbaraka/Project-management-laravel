@@ -9,7 +9,7 @@
             <a href="/dashboard"
                class="navbar-brand d-flex align-items-center justify-content-center ">
                 <img class="navbar-brand-icon m-0"
-                     src="assets/images/logo%402x.png"
+                     src="{{asset('assets/images/logo%402x.png')}}"
                      height="26"
                      alt="BizzArk">
             </a>
@@ -37,7 +37,7 @@
                         data-container="body"
                         data-boundary="window">
                         <a class="sidebar-menu-button"
-                           href="/newprojet">
+                           href="/projet/create">
                             <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">event_seat</i>
                             <span class="sidebar-menu-text">Creer un projet</span>
                         </a>
@@ -51,7 +51,7 @@
                         data-container="body"
                         data-boundary="window">
                         <a class="sidebar-menu-button"
-                           href="/projets">
+                           href="/projet/list">
                             <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">list</i>
                             <span class="sidebar-menu-text">Mes projets</span>
                         </a>

@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Projet extends Model
 {
     use HasFactory;
+    protected $table = 'projets';
+    protected $primaryKey = 'id';
+    protected $fillable = ['designation','budget','localisation','bailleur','datedebut','datefin'];
 }

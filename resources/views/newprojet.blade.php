@@ -44,74 +44,75 @@
 
                                 <div class="container page__container">
 
-                                    <div class="card">
-                                        <div class="card-form__body card-body">
-                                            <div class="form-group">
-                                                <label for="slug">Designation</label>
-                                                <input id="slug"
-                                                       type="text"
-                                                       class="form-control"
-                                                       placeholder="">
-                                            </div>
+                                    <form method="POST" action="{{url('/projet/save')}}">
+                                        @csrf
+                                        <div class="card">
+                                            <div class="card-form__body card-body">
+                                                <div class="form-group">
+                                                    <label for="slug">Designation</label>
+                                                    <input id="slug"
+                                                           type="text"
+                                                           name="designation"
+                                                           class="form-control"
+                                                           placeholder="">
+                                                </div>
 
-                                            <div class="form-group">
-                                                <label for="title">Budget</label>
-                                                <input id="title"
-                                                       type="number"
-                                                       class="form-control"
-                                                       placeholder=""
-                                                       value="">
-                                            </div>
+                                                <div class="form-group">
+                                                    <label for="title">Budget</label>
+                                                    <input id="title"
+                                                           type="number"
+                                                           name="budget"
+                                                           class="form-control"
+                                                           placeholder=""
+                                                           value="">
+                                                </div>
 
-                                            <div class="form-group">
-                                                <label for="title">Localisation</label>
-                                                <input id="title"
-                                                       type="text"
-                                                       class="form-control">
-                                            </div>
+                                                <div class="form-group">
+                                                    <label for="title">Localisation</label>
+                                                    <input id="title"
+                                                           type="text"
+                                                           name="localisation"
+                                                           class="form-control">
+                                                </div>
 
-                                            <div class="form-group">
-                                                <label for="title">Bailleur</label>
-                                                <input id="title"
-                                                       type="number"
-                                                       class="form-control"
-                                                       placeholder="">
-                                            </div>
+                                                <div class="form-group">
+                                                    <label for="title">Bailleur</label>
+                                                    <input id="title"
+                                                           type="text"
+                                                           name="bailleur"
+                                                           class="form-control"
+                                                           placeholder="">
+                                                </div>
 
-                                            <div class="form-group">
-                                                <label for="desc">Description</label>
-                                                <textarea id="desc"
-                                                          rows="4"
-                                                          class="form-control"
-                                                          placeholder=""></textarea>
-                                            </div>
+                                                <div class="form-group">
+                                                    <label for="title">Date debut</label>
+                                                    <input id="title"
+                                                           type="date"
+                                                           name="datedebut"
+                                                           class="form-control"
+                                                           placeholder=""
+                                                           value="">
+                                                </div>
 
-                                            <div class="form-group">
-                                                <label for="title">Date debut</label>
-                                                <input id="title"
-                                                       type="date"
-                                                       class="form-control"
-                                                       placeholder=""
-                                                       value="">
-                                            </div>
+                                                <div class="form-group">
+                                                    <label for="title">Date fin</label>
+                                                    <input id="title"
+                                                           type="date"
+                                                           name="datefin"
+                                                           class="form-control"
+                                                           placeholder="">
+                                                </div>
 
-                                            <div class="form-group">
-                                                <label for="title">Date fin</label>
-                                                <input id="title"
-                                                       type="date"
-                                                       class="form-control"
-                                                       placeholder="">
+                                            </div>
+                                            <div class="card-body text-center">
+
+                                                <button type="submit"
+                                                        class="btn btn-success">Creer
+                                                </button>
                                             </div>
 
                                         </div>
-                                        <div class="card-body text-center">
-
-                                            <button type="submit"
-                                                    class="btn btn-success">Creer
-                                            </button>
-                                        </div>
-
-                                    </div>
+                                    </form>
 
                                 </div>
 

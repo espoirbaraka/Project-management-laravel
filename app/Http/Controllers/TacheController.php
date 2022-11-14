@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Projet;
-use App\Models\Utilisateur;
 
-class ProjetController extends Controller
+class TacheController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +13,7 @@ class ProjetController extends Controller
      */
     public function index()
     {
-        $data = ['LoggedUserInfo'=>Utilisateur::where('id','=',session('LoggedUser'))->first()];
-        $projets = Projet::all();
-        return view('projets', $data)->with('projets', $projets);
+        //
     }
 
     /**
@@ -27,8 +23,7 @@ class ProjetController extends Controller
      */
     public function create()
     {
-        $data = ['LoggedUserInfo'=>Utilisateur::where('id','=',session('LoggedUser'))->first()];
-        return view('newprojet', $data);
+        //
     }
 
     /**
@@ -39,9 +34,7 @@ class ProjetController extends Controller
      */
     public function store(Request $request)
     {
-        $input = $request->all();
-        Projet::create($input);
-        return redirect('projet/list')->with('flash_message', 'Projet créé !!!');
+        //
     }
 
     /**
@@ -52,8 +45,7 @@ class ProjetController extends Controller
      */
     public function show($id)
     {
-        $projet = Projet::find($id);
-
+        //
     }
 
     /**

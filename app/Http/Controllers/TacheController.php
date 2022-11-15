@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Utilisateur;
 use Illuminate\Http\Request;
+use App\Models\Tache;
 
 class TacheController extends Controller
 {
@@ -23,7 +25,8 @@ class TacheController extends Controller
      */
     public function create()
     {
-        //
+        $data = ['LoggedUserInfo'=>Utilisateur::where('id','=',session('LoggedUser'))->first()];
+        return view('newtache', $data);
     }
 
     /**

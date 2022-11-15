@@ -20,6 +20,14 @@ class ProjetController extends Controller
         return view('projets', $data)->with('projets', $projets);
     }
 
+    public function projetbyuser($user)
+    {
+        $data = ['LoggedUserInfo'=>Utilisateur::where('id','=',session('LoggedUser'))->first()];
+        $projet = Projet::find($user);
+        return view('projets', $data)->with('projetbyuser', $projet);
+
+    }
+
     /**
      * Show the form for creating a new resource.
      *

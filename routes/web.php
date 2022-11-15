@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ProjetController;
+use App\Http\Controllers\TacheController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,11 @@ Route::group(['middleware'=>['AuthCheck']], function (){
     Route::get('/dashboard', [MainController::class, 'dashboard'])->name('dashboard');
 
     Route::get('/projet/create', [ProjetController::class, 'create'])->name('newprojet');
+    Route::get('/projet/list/{user}', [ProjetController::class, 'projetbyuser'])->name('projetbyuser');
     Route::get('/projet/list', [ProjetController::class, 'index'])->name('projets');
     Route::post('/projet/save', [ProjetController::class, 'store']);
+
+    Route::get('/tache/create/{projet}', [TacheController::class, 'create'])->name('newtache');
+//    Route::get('/projet/list', [ProjetController::class, 'index'])->name('projets');
+//    Route::post('/projet/save', [ProjetController::class, 'store']);
 });

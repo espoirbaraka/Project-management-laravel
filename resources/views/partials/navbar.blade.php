@@ -25,7 +25,7 @@
                         data-placement="right"
                         data-boundary="window">
                         <a class="sidebar-menu-button"
-                           href="/dashboard">
+                           href="{{asset('dashboard')}}">
                             <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">view_compact</i>
                             <span class="sidebar-menu-text">Dashboard</span>
                         </a>

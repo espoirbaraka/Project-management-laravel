@@ -29,7 +29,7 @@
                                             <div>
                                                 <nav aria-label="breadcrumb">
                                                     <ol class="breadcrumb mb-0">
-                                                        <li class="breadcrumb-item"><a href="dashboard">Tableau de bord</a></li>
+                                                        <li class="breadcrumb-item"><a href="{{asset('dashboard')}}">Tableau de bord</a></li>
 
                                                     </ol>
                                                 </nav>
@@ -44,11 +44,11 @@
 
                                 <div class="container page__container">
 
-                                    <form method="POST" action="{{url('/projet/save')}}">
+                                    <form method="POST" action="{{url('/tache/save')}}">
                                         @csrf
                                         <div class="card">
                                             <div class="card-form__body card-body">
-                                                <input name="created_by" type="hidden" value="{{$LoggedUserInfo['id']}}">
+                                                <input name="codeprojet" type="hidden" value="1">
                                                 <div class="form-group">
                                                     <label for="slug">Designation</label>
                                                     <input id="slug"
@@ -62,7 +62,7 @@
                                                     <label for="title">Budget</label>
                                                     <input id="title"
                                                            type="number"
-                                                           name="budget"
+                                                           name="montant"
                                                            class="form-control"
                                                            placeholder=""
                                                            value="">

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Projet;
 use App\Models\Utilisateur;
 use Illuminate\Http\Request;
 use App\Models\Tache;
@@ -37,7 +38,9 @@ class TacheController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+        Tache::create($input);
+        return redirect('projet/list')->with('flash_message', 'Tache créé !!!');
     }
 
     /**

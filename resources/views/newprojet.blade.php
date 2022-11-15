@@ -48,6 +48,7 @@
                                         @csrf
                                         <div class="card">
                                             <div class="card-form__body card-body">
+                                                <input name="created_by" type="hidden" value="{{$LoggedUserInfo['id']}}">
                                                 <div class="form-group">
                                                     <label for="slug">Designation</label>
                                                     <input id="slug"

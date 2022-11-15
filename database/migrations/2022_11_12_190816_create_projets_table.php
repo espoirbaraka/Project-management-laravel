@@ -22,7 +22,7 @@ class CreateProjetsTable extends Migration
             $table->dateTime('datedebut');
             $table->dateTime('datefin');
             $table->integer('created_by');
-            $table->integer('statut');
+            $table->integer('statut')->default(0);
             $table->timestamps();
         });
     }

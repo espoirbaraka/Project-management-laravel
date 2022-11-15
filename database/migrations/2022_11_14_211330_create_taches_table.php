@@ -20,7 +20,7 @@ class CreateTachesTable extends Migration
             $table->dateTime('datedebut');
             $table->dateTime('datefin');
             $table->integer('codeprojet');
-            $table->integer('statut');
+            $table->integer('statut')->default(0);
             $table->timestamps();
         });
     }

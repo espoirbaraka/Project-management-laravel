@@ -50,7 +50,7 @@
                                                                 <i class="material-icons text-white icon-18pt">business</i>
                                                             </span>
                                                     </div>
-                                                    <a href="/dashboard"
+                                                    <a href="{{asset('dashboard')}}"
                                                        class="text-dark">
                                                         <strong>Acceuil</strong>
                                                     </a>

@@ -32,6 +32,7 @@ Route::group(['middleware'=>['AuthCheck']], function (){
     Route::post('/projet/save', [ProjetController::class, 'store']);
 
     Route::get('/tache/create/{projet}', [TacheController::class, 'create'])->name('newtache');
+    Route::post('/tache/save', [TacheController::class, 'store']);
 //    Route::get('/projet/list', [ProjetController::class, 'index'])->name('projets');
 //    Route::post('/projet/save', [ProjetController::class, 'store']);
 });

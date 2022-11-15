@@ -29,7 +29,7 @@
                                             <div>
                                                 <nav aria-label="breadcrumb">
                                                     <ol class="breadcrumb mb-0">
-                                                        <li class="breadcrumb-item"><a href="dashboard">Tableau de bord</a></li>
+                                                        <li class="breadcrumb-item"><a href="{{asset('dashboard')}}">Tableau de bord</a></li>
 
                                                     </ol>
                                                 </nav>

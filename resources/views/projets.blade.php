@@ -49,7 +49,13 @@
                                              data-dragula-containers='["#trello-tasks-1", "#trello-tasks-2", "#trello-tasks-3", "#trello-tasks-4"]'>
                                             <div class="card bg-light border">
                                                 <div class="card-header card-header-sm bg-white border-primary">
-                                                    <h4 class="card-header__title">{{$item->designation}}</h4>
+                                                    <div class="float-left">
+                                                        <h4 class="card-header__title">{{$item->designation}}</h4>
+                                                    </div>
+                                                    <div class="float-right">
+                                                        <a href="#"><i class="fa fa-edit" style="color: #fc6c07;"></i></a>
+                                                        <a href="#"><i class="fa fa-trash" style="color: red;"></i></a>
+                                                    </div>
                                                 </div>
                                                 <div class="card-body p-2">
                                                     <div class="trello-board__tasks-list card-list"

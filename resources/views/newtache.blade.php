@@ -33,7 +33,8 @@
 
                                                     </ol>
                                                 </nav>
-                                                <h1 class="m-0">Ajouter une tache au projet</h1>
+
+                                                <h1 class="m-0">Ajouter une tache au projet </h1>
                                             </div>
 
                                         </div>
@@ -48,7 +49,7 @@
                                         @csrf
                                         <div class="card">
                                             <div class="card-form__body card-body">
-                                                <input name="codeprojet" type="hidden" value="1">
+                                                <input name="codeprojet" type="hidden" value="{{$item->id}}">
                                                 <div class="form-group">
                                                     <label for="slug">Designation</label>
                                                     <input id="slug"

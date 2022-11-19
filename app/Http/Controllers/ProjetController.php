@@ -24,7 +24,7 @@ class ProjetController extends Controller
     {
         $data = ['LoggedUserInfo'=>Utilisateur::where('id','=',session('LoggedUser'))->first()];
         $projet = Projet::find($user);
-        return view('projets', $data)->with('projetbyuser', $projet);
+        return back($data)->with('projetbyuser', $projet);
 
     }
 
@@ -47,6 +47,12 @@ class ProjetController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'designation'=>['required','string'],
+            'budget'=>['required','float'],
+            'localisation'=>['required','string'],
+            'bailleur'=>['required','string']
+        ]);
         $input = $request->all();
         Projet::create($input);
         return redirect('projet/list')->with('flash_message', 'Projet créé !!!');
@@ -84,7 +90,9 @@ class ProjetController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $projet = Projet::find($id);
+        $projet->update($request->all());
+        return $projet;
     }
 
     /**
@@ -95,6 +103,6 @@ class ProjetController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return Projet::destroy($id);
     }
 }

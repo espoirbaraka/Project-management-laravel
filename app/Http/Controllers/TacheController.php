@@ -19,6 +19,14 @@ class TacheController extends Controller
         //
     }
 
+    public function tachebyprojet($projet)
+    {
+        $data = ['LoggedUserInfo'=>Utilisateur::where('id','=',session('LoggedUser'))->first()];
+        $tache = Tache::find($projet);
+        return view('projets', $data)->with('projetbyuser', $projet);
+
+    }
+
     /**
      * Show the form for creating a new resource.
      *

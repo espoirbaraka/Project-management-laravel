@@ -17,14 +17,14 @@ class ProjetController extends Controller
     {
         $data = ['LoggedUserInfo'=>Utilisateur::where('id','=',session('LoggedUser'))->first()];
         $projets = Projet::all();
-        return view('projets', $data)->with('projets', $projets);
+        return view('projet/projets', $data)->with('projets', $projets);
     }
 
     public function projetbyuser($user)
     {
         $data = ['LoggedUserInfo'=>Utilisateur::where('id','=',session('LoggedUser'))->first()];
         $projet = Projet::find($user);
-        return back($data)->with('projetbyuser', $projet);
+        return back($data)->with('projet/projetbyuser', $projet);
 
     }
 
@@ -36,7 +36,7 @@ class ProjetController extends Controller
     public function create()
     {
         $data = ['LoggedUserInfo'=>Utilisateur::where('id','=',session('LoggedUser'))->first()];
-        return view('newprojet', $data);
+        return view('projet/newprojet', $data);
     }
 
     /**
@@ -49,7 +49,7 @@ class ProjetController extends Controller
     {
         $request->validate([
             'designation'=>['required','string'],
-            'budget'=>['required','float'],
+            'budget'=>['required'],
             'localisation'=>['required','string'],
             'bailleur'=>['required','string']
         ]);
@@ -78,7 +78,9 @@ class ProjetController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = ['LoggedUserInfo'=>Utilisateur::where('id','=',session('LoggedUser'))->first()];
+        $projets = Projet::where("id",$id)->where("id",1)->get();
+        return view("projet.update", $data, compact('projets'));
     }
 
     /**

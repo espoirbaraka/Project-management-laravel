@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Tache;
 use Illuminate\Http\Request;
 use App\Models\Projet;
 use App\Models\Utilisateur;
@@ -18,7 +19,8 @@ class ProjetController extends Controller
 
         $data = ['LoggedUserInfo'=>Utilisateur::where('id','=',session('LoggedUser'))->first()];
         $projets = Projet::where('created_by','=',session('LoggedUser'))->get();
-        return view('projet/projets', $data)->with('projets', $projets);
+        $taches = Tache::where('codeprojet','=',1)->get();
+        return view('projet/projets', $data, compact('projets', 'taches'));
     }
 
     public function projetbyuser($user)

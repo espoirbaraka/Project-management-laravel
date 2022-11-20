@@ -19,7 +19,9 @@ class ProjetController extends Controller
 
         $data = ['LoggedUserInfo'=>Utilisateur::where('id','=',session('LoggedUser'))->first()];
         $projets = Projet::where('created_by','=',session('LoggedUser'))->get();
-        $taches = Tache::where('codeprojet','=',1)->get();
+        foreach ($projets as $row){
+            $taches = Tache::where('codeprojet','=',$row->id)->get();
+        }
         return view('projet/projets', $data, compact('projets', 'taches'));
     }
 

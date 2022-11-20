@@ -61,7 +61,7 @@
                                                     <div class="trello-board__tasks-list card-list"
                                                          id="trello-tasks-1">
 
-                                                        @foreach($taches as $item2)
+                                                        @foreach(App\Models\Tache::where('codeprojet','=',$item->id)->get() as $item2)
                                                             <div class="trello-board__tasks-item card shadow-none border">
                                                                 <div class="p-3">
                                                                     <p class="m-0 d-flex align-items-center">

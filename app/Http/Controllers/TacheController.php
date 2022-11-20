@@ -32,10 +32,11 @@ class TacheController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
         $data = ['LoggedUserInfo'=>Utilisateur::where('id','=',session('LoggedUser'))->first()];
-        return view('newtache', $data);
+        $projet = Projet::where("id",$id)->get()->first();
+        return view('tache/newtache', $data, compact('projet'));
     }
 
     /**

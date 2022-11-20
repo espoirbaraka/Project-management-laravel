@@ -34,7 +34,7 @@
                                                     </ol>
                                                 </nav>
 
-                                                <h1 class="m-0">Ajouter une tache au projet </h1>
+                                                <h1 class="m-0">Ajouter une tache à {{$projet->designation}} </h1>
                                             </div>
 
                                         </div>
@@ -49,7 +49,7 @@
                                         @csrf
                                         <div class="card">
                                             <div class="card-form__body card-body">
-                                                <input name="codeprojet" type="hidden" value="{{$item->id}}">
+                                                <input name="codeprojet" type="hidden" value="{{$projet->id}}">
                                                 <div class="form-group">
                                                     <label for="slug">Designation</label>
                                                     <input id="slug"

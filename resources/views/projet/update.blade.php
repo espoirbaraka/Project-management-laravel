@@ -90,25 +90,6 @@
                                                             value="{{$projets->bailleur}}">
                                                 </div>
 
-{{--                                                <div class="form-group">--}}
-{{--                                                    <label for="title">Date debut</label>--}}
-{{--                                                    <input id="title"--}}
-{{--                                                           type="date"--}}
-{{--                                                           name="datedebut"--}}
-{{--                                                           class="form-control"--}}
-{{--                                                           placeholder=""--}}
-{{--                                                           value="{{$projets->datedebut}}">--}}
-{{--                                                </div>--}}
-
-{{--                                                <div class="form-group">--}}
-{{--                                                    <label for="title">Date fin</label>--}}
-{{--                                                    <input id="title"--}}
-{{--                                                           type="date"--}}
-{{--                                                           name="datefin"--}}
-{{--                                                           class="form-control"--}}
-{{--                                                           placeholder=""--}}
-{{--                                                           value="{{$projets->datefin}}">--}}
-{{--                                                </div>--}}
 
                                             </div>
                                             <div class="card-body text-center">

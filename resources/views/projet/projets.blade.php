@@ -61,44 +61,54 @@
                                                     <div class="trello-board__tasks-list card-list"
                                                          id="trello-tasks-1">
 
-                                                        <div class="trello-board__tasks-item card shadow-none border">
-                                                            <div class="p-3">
-                                                                <p class="m-0 d-flex align-items-center">
-                                                                    <strong>Add UI Buttons Page</strong> <span
-                                                                        class="badge badge-light-gray ml-auto">OPEN</span>
-                                                                </p>
+                                                        @foreach($taches as $item2)
+                                                            <div class="trello-board__tasks-item card shadow-none border">
+                                                                <div class="p-3">
+                                                                    <p class="m-0 d-flex align-items-center">
+                                                                        <strong>{{$item2->designation}}</strong> <span
+                                                                            class="badge badge-light-gray ml-auto">OPEN</span>
+                                                                    </p>
 
-                                                                <p class="d-flex align-items-center mb-2 small">
-                                                                    <i class="material-icons icon-14pt mr-1 text-muted">folder_open</i>
-                                                                    <span class="text-muted mr-2">Stack</span>
-                                                                    <i class="material-icons icon-14pt mr-1 text-muted">comment</i>
-                                                                    <span class="text-muted"><strong>28</strong> comments</span>
-                                                                </p>
-                                                                <div class="media align-items-center">
-                                                                    <div class="media-left mr-2">
+                                                                    <p class="d-flex align-items-center mb-2 small">
+                                                                        <i class="material-icons icon-14pt mr-1 text-muted">folder_open</i>
+                                                                        <span class="text-muted mr-2">Stack</span>
+                                                                        <i class="material-icons icon-14pt mr-1 text-muted">comment</i>
+                                                                        <span class="text-muted"><strong>28</strong> comments</span>
+                                                                    </p>
+                                                                    <div class="media align-items-center">
+                                                                        <div class="media-left mr-2">
 
-                                                                        <div class="avatar avatar-xxs"
-                                                                             data-toggle="tooltip"
-                                                                             data-placement="top"
-                                                                             title="Janell D.">
-                                                                            <img src="assets/images/256_rsz_1andy-lee-642320-unsplash.jpg"
-                                                                                 alt="Avatar"
-                                                                                 class="avatar-img rounded-circle">
+                                                                            <div class="avatar avatar-xxs"
+                                                                                 data-toggle="tooltip"
+                                                                                 data-placement="top"
+                                                                                 title="Janell D.">
+                                                                                <img src="{{asset('assets/images/256_rsz_1andy-lee-642320-unsplash.jpg')}}"
+                                                                                     alt="Avatar"
+                                                                                     class="avatar-img rounded-circle">
+                                                                            </div>
+
                                                                         </div>
+                                                                        <div class="media-body small media-middle">
 
-                                                                    </div>
-                                                                    <div class="media-body small media-middle">
-
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
+                                                        @endforeach
+
 
 
 
                                                     </div>
-                                                    <a href="/tache/create/{{$item->id}}"
-                                                       class="btn btn-link text-muted btn-block mt-2">+ Ajouter une tache</a>
+                                                    <div style="float: left;">
+                                                        <a href="/tache/create/{{$item->id}}"
+                                                           class="btn btn-link text-muted btn-block mt-2">+ Tache</a>
+                                                    </div>
+                                                    <div style="float: right;">
+                                                        <a href="/contributeur/create/{{$item->id}}"
+                                                           class="btn btn-link text-muted btn-block mt-2">+ Contributeur</a>
+                                                    </div>
+
                                                 </div>
                                             </div>
                                         </div>

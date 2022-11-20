@@ -44,11 +44,12 @@
 
                                 <div class="container page__container">
 
-                                    <form method="POST" action="{{url('/projet/save')}}">
+                                    <form method="POST" action="{{url('/projet/update')}}">
                                         @csrf
                                         <div class="card">
                                             <div class="card-form__body card-body">
                                                 <input name="created_by" type="hidden" value="{{$LoggedUserInfo['id']}}">
+                                                <input name="id" type="hidden" value="{{$projets->id}}">
                                                 <div class="form-group">
                                                     <label for="slug">Designation</label>
                                                     <input id="slug"
@@ -89,25 +90,25 @@
                                                             value="{{$projets->bailleur}}">
                                                 </div>
 
-                                                <div class="form-group">
-                                                    <label for="title">Date debut</label>
-                                                    <input id="title"
-                                                           type="date"
-                                                           name="datedebut"
-                                                           class="form-control"
-                                                           placeholder=""
-                                                           value="{{$projets->datedebut}}">
-                                                </div>
+{{--                                                <div class="form-group">--}}
+{{--                                                    <label for="title">Date debut</label>--}}
+{{--                                                    <input id="title"--}}
+{{--                                                           type="date"--}}
+{{--                                                           name="datedebut"--}}
+{{--                                                           class="form-control"--}}
+{{--                                                           placeholder=""--}}
+{{--                                                           value="{{$projets->datedebut}}">--}}
+{{--                                                </div>--}}
 
-                                                <div class="form-group">
-                                                    <label for="title">Date fin</label>
-                                                    <input id="title"
-                                                           type="date"
-                                                           name="datefin"
-                                                           class="form-control"
-                                                           placeholder=""
-                                                           value="{{$projets->datefin}}">
-                                                </div>
+{{--                                                <div class="form-group">--}}
+{{--                                                    <label for="title">Date fin</label>--}}
+{{--                                                    <input id="title"--}}
+{{--                                                           type="date"--}}
+{{--                                                           name="datefin"--}}
+{{--                                                           class="form-control"--}}
+{{--                                                           placeholder=""--}}
+{{--                                                           value="{{$projets->datefin}}">--}}
+{{--                                                </div>--}}
 
                                             </div>
                                             <div class="card-body text-center">

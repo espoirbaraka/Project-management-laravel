@@ -90,11 +90,19 @@ class ProjetController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        $projet = Projet::find($id);
-        $projet->update($request->all());
-        return $projet;
+        $projet = Projet::find($request->id);
+        $projet->designation = $request->designation;
+        $projet->budget = $request->budget;
+        $projet->localisation = $request->localisation;
+        $projet->bailleur = $request->bailleur;
+//        $projet->datedebut = $request->datedebut;
+//        $projet->datefin = $request->datefin;
+
+        $projet->update();
+
+        return redirect()->intended('/projet/list');
     }
 
     /**

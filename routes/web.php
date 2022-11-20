@@ -27,6 +27,7 @@ Route::group(['middleware'=>['AuthCheck']], function (){
     Route::get('/dashboard', [MainController::class, 'dashboard'])->name('dashboard');
 
     Route::get('/projet/create', [ProjetController::class, 'create']);
+    Route::post('/projet/update', [ProjetController::class, 'update']);
     Route::get('/projet/update/{id}', [ProjetController::class, 'edit']);
     Route::get('/projet/list/{user}', [ProjetController::class, 'projetbyuser'])->name('projetbyuser');
     Route::get('/projet/list', [ProjetController::class, 'index'])->name('projets');

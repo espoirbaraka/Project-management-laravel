@@ -54,7 +54,7 @@
                                                     </div>
                                                     <div class="float-right">
                                                         <a href="/projet/update/{{$item->id}}"><i class="fa fa-edit" style="color: #fc6c07;"></i></a>
-                                                        <a href="/projet/delete/{{$item->id}}"><i class="fa fa-trash" style="color: red;"></i></a>
+{{--                                                        <a href="/projet/delete/{{$item->id}}"><i class="fa fa-trash" style="color: red;"></i></a>--}}
                                                     </div>
                                                 </div>
                                                 <div class="card-body p-2">

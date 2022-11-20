@@ -13,12 +13,11 @@ class ProjetController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $value = session()->get('LoggedUser');
-        $user = session('LoggedUser');
+
         $data = ['LoggedUserInfo'=>Utilisateur::where('id','=',session('LoggedUser'))->first()];
-        $projets = Projet::where('created_by','=',$user)->get();
+        $projets = Projet::where('created_by','=',session('LoggedUser'))->get();
         return view('projet/projets', $data)->with('projets', $projets);
     }
 

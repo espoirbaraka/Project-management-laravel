@@ -79,7 +79,7 @@ class ProjetController extends Controller
     public function edit($id)
     {
         $data = ['LoggedUserInfo'=>Utilisateur::where('id','=',session('LoggedUser'))->first()];
-        $projets = Projet::where("id",$id)->where("id",1)->get();
+        $projets = Projet::where("id",$id)->get()->first();
         return view("projet.update", $data, compact('projets'));
     }
 

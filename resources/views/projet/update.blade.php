@@ -33,7 +33,7 @@
 
                                                     </ol>
                                                 </nav>
-                                                <h1 class="m-0">Modifier le projet</h1>
+                                                <h1 class="m-0">Modifier {{$projets->designation}}</h1>
                                             </div>
 
                                         </div>
@@ -55,7 +55,9 @@
                                                            type="text"
                                                            name="designation"
                                                            class="form-control"
-                                                           placeholder="">
+                                                           placeholder=""
+                                                           value="{{$projets->designation}}"
+                                                    >
                                                 </div>
 
                                                 <div class="form-group">
@@ -65,7 +67,7 @@
                                                            name="budget"
                                                            class="form-control"
                                                            placeholder=""
-                                                           value="">
+                                                           value="{{$projets->budget}}">
                                                 </div>
 
                                                 <div class="form-group">
@@ -73,7 +75,8 @@
                                                     <input id="title"
                                                            type="text"
                                                            name="localisation"
-                                                           class="form-control">
+                                                           class="form-control"
+                                                           value="{{$projets->localisation}}">
                                                 </div>
 
                                                 <div class="form-group">
@@ -82,7 +85,8 @@
                                                            type="text"
                                                            name="bailleur"
                                                            class="form-control"
-                                                           placeholder="">
+                                                           placeholder=""
+                                                            value="{{$projets->bailleur}}">
                                                 </div>
 
                                                 <div class="form-group">
@@ -92,7 +96,7 @@
                                                            name="datedebut"
                                                            class="form-control"
                                                            placeholder=""
-                                                           value="">
+                                                           value="{{$projets->datedebut}}">
                                                 </div>
 
                                                 <div class="form-group">
@@ -101,7 +105,8 @@
                                                            type="date"
                                                            name="datefin"
                                                            class="form-control"
-                                                           placeholder="">
+                                                           placeholder=""
+                                                           value="{{$projets->datefin}}">
                                                 </div>
 
                                             </div>

@@ -40,12 +40,10 @@ class ParticipationController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'code_projet'=>['required'],
-            'code_user'=>2
-        ]);
-        $input = $request->all();
-        Participation::create($input);
+        $participation = new Participation;
+        $participation->code_projet = $request->code_projet;
+        $participation->code_user = 1;
+        $save = $participation->save();
         return redirect('projet/list')->with('flash_message', 'Participant créé !!!');
     }
 

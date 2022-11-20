@@ -15,8 +15,10 @@ class ProjetController extends Controller
      */
     public function index()
     {
+        $value = session()->get('LoggedUser');
+        $user = session('LoggedUser');
         $data = ['LoggedUserInfo'=>Utilisateur::where('id','=',session('LoggedUser'))->first()];
-        $projets = Projet::all();
+        $projets = Projet::where('created_by','=',$user)->get();
         return view('projet/projets', $data)->with('projets', $projets);
     }
 
@@ -97,8 +99,6 @@ class ProjetController extends Controller
         $projet->budget = $request->budget;
         $projet->localisation = $request->localisation;
         $projet->bailleur = $request->bailleur;
-//        $projet->datedebut = $request->datedebut;
-//        $projet->datefin = $request->datefin;
 
         $projet->update();
 

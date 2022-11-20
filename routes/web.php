@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ProjetController;
 use App\Http\Controllers\TacheController;
+use App\Http\Controllers\ParticipationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,5 +37,8 @@ Route::group(['middleware'=>['AuthCheck']], function (){
     Route::get('/tache/create/{projet}', [TacheController::class, 'create'])->name('newtache');
     Route::post('/tache/save', [TacheController::class, 'store']);
     Route::get('/tache/list/{projet}', [TacheController::class, 'tachebyprojet'])->name('tachebyprojet');
-//    Route::post('/projet/save', [ProjetController::class, 'store']);
+
+    Route::get('/participation/create/{projet}', [ParticipationController::class, 'create'])->name('newtache');
+    Route::post('/participation/save', [ParticipationController::class, 'store']);
+    Route::get('/participation/list/{projet}', [ParticipationController::class, 'tachebyprojet'])->name('tachebyprojet');
 });

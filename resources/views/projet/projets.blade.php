@@ -105,8 +105,8 @@
                                                            class="btn btn-link text-muted btn-block mt-2">+ Tache</a>
                                                     </div>
                                                     <div style="float: right;">
-                                                        <a href="/contributeur/create/{{$item->id}}"
-                                                           class="btn btn-link text-muted btn-block mt-2">+ Contributeur</a>
+                                                        <a href="/participation/create/{{$item->id}}"
+                                                           class="btn btn-link text-muted btn-block mt-2">+ Participant</a>
                                                     </div>
 
                                                 </div>

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Participation;
 use App\Models\Projet;
+use App\Models\Tache;
 use App\Models\Utilisateur;
 use Illuminate\Http\Request;
 
@@ -38,7 +40,13 @@ class ParticipationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'code_projet'=>['required'],
+            'code_user'=>2
+        ]);
+        $input = $request->all();
+        Participation::create($input);
+        return redirect('projet/list')->with('flash_message', 'Participant créé !!!');
     }
 
     /**

@@ -66,15 +66,10 @@
                                                                 <div class="p-3">
                                                                     <p class="m-0 d-flex align-items-center">
                                                                         <strong>{{$item2->designation}}</strong> <span
-                                                                            class="badge badge-light-gray ml-auto">OPEN</span>
+                                                                            class="badge badge-light-gray ml-auto">En attente</span>
                                                                     </p>
 
-                                                                    <p class="d-flex align-items-center mb-2 small">
-                                                                        <i class="material-icons icon-14pt mr-1 text-muted">folder_open</i>
-                                                                        <span class="text-muted mr-2">Stack</span>
-                                                                        <i class="material-icons icon-14pt mr-1 text-muted">comment</i>
-                                                                        <span class="text-muted"><strong>28</strong> comments</span>
-                                                                    </p>
+                                                                    
                                                                     <div class="media align-items-center">
                                                                         <div class="media-left mr-2">
 

@@ -34,7 +34,7 @@
                                                     </ol>
                                                 </nav>
 
-                                                <h1 class="m-0">Ajouter une tache à {{$projet->designation}} </h1>
+                                                <h1 class="m-0">Ajouter un participant à {{$projet->designation}} </h1>
                                             </div>
 
                                         </div>
@@ -45,49 +45,20 @@
 
                                 <div class="container page__container">
 
-                                    <form method="POST" action="{{url('/tache/save')}}">
+                                    <form method="POST" action="{{url('/participation/save')}}">
                                         @csrf
                                         <div class="card">
                                             <div class="card-form__body card-body">
-                                                <input name="codeprojet" type="hidden" value="{{$projet->id}}">
+                                                <input name="code_projet" type="hidden" value="{{$projet->id}}">
                                                 <div class="form-group">
-                                                    <label for="slug">Designation</label>
+                                                    <label for="slug">Email du participant</label>
                                                     <input id="slug"
-                                                           type="text"
-                                                           name="designation"
+                                                           type="email"
+                                                           name="email"
                                                            class="form-control"
                                                            placeholder="">
                                                 </div>
 
-                                                <div class="form-group">
-                                                    <label for="title">Budget</label>
-                                                    <input id="title"
-                                                           type="number"
-                                                           name="montant"
-                                                           class="form-control"
-                                                           placeholder=""
-                                                           value="">
-                                                </div>
-
-
-                                                <div class="form-group">
-                                                    <label for="title">Date debut</label>
-                                                    <input id="title"
-                                                           type="date"
-                                                           name="datedebut"
-                                                           class="form-control"
-                                                           placeholder=""
-                                                           value="">
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label for="title">Date fin</label>
-                                                    <input id="title"
-                                                           type="date"
-                                                           name="datefin"
-                                                           class="form-control"
-                                                           placeholder="">
-                                                </div>
 
                                             </div>
                                             <div class="card-body text-center">

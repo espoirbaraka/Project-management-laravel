@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Projet;
+use App\Models\Utilisateur;
 use Illuminate\Http\Request;
 
 class ParticipationController extends Controller
@@ -21,9 +23,11 @@ class ParticipationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        //
+        $data = ['LoggedUserInfo'=>Utilisateur::where('id','=',session('LoggedUser'))->first()];
+        $projet = Projet::where("id",$id)->get()->first();
+        return view('participation/newparticipant', $data, compact('projet'));
     }
 
     /**

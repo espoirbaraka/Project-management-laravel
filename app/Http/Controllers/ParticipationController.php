@@ -40,9 +40,10 @@ class ParticipationController extends Controller
      */
     public function store(Request $request)
     {
+        $user = Utilisateur::where('email','=',$request->email)->first();
         $participation = new Participation;
         $participation->code_projet = $request->code_projet;
-        $participation->code_user = 1;
+        $participation->code_user = $user->id;
         $save = $participation->save();
         return redirect('projet/list')->with('flash_message', 'Participant créé !!!');
     }

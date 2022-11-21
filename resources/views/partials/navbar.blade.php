@@ -65,7 +65,7 @@
                         data-boundary="window">
                         <a class="sidebar-menu-button"
                            href="/projet/participation">
-                            <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">list</i>
+                            <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">person</i>
                             <span class="sidebar-menu-text">Mes participations</span>
                         </a>
                     </li>

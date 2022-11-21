@@ -126,7 +126,7 @@
                                                                     class="material-icons icon-16pt text-muted-light mr-1">pin_drop</i>
                                                                 <small>{{$item->localisation}}</small></div>
                                                         <td class="text-right"><strong>{{$item->budget}} $</strong></td>
-                                                       <td><a href="#"
+                                                       <td class="text-right"><a href="detail/{{$item->id}}"
                                                                class="btn btn-sm btn-link"><i
                                                                     class="material-icons icon-16pt">arrow_forward</i></a>
                                                         </td>

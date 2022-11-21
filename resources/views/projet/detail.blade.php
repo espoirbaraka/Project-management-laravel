@@ -42,7 +42,85 @@
                                 </div>
 
 
-                                <div class="trello-container">
+                                <div class="container page__container">
+                                    <p class="text-dark-gray d-flex align-items-center mt-3">
+                                        <i class="material-icons icon-muted mr-2">list</i>
+                                        <strong>Taches</strong>
+                                    </p>
+
+                                    @foreach(App\Models\Tache::where('codeprojet','=',$projets->id)->get() as $item2)
+                                        <div class="row align-items-center projects-item mb-1">
+                                            <div class="col-sm-auto mb-1 mb-sm-0">
+                                                <div class="text-dark-gray">De {{$item2->datedebut}} <br> à {{$item2->datedebut}}</div>
+                                            </div>
+                                            <div class="col-sm">
+                                                <div class="card m-0">
+                                                    <div class="px-4 py-3">
+                                                        <div class="row align-items-center">
+                                                            <div class="col-md-6"
+                                                                 style="min-width: 300px">
+                                                                <div class="d-flex align-items-center">
+                                                                    <a href="#"
+                                                                       class="text-body"><strong class="text-15pt mr-2">{{$item2->designation}}</strong></a>
+                                                                    <span class="badge badge-light-gray">NEW</span>
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="col-md-3 d-flex align-items-center">
+                                                                <i class="material-icons icon-muted icon-20pt mr-2">money</i>
+                                                                <a href="#"
+                                                                   class="text-body">{{$item2->montant}} $</a>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+
+
+                                    <p class="text-dark-gray d-flex align-items-center mt-3">
+                                        <i class="material-icons icon-muted mr-2">person</i>
+                                        <strong>Participant</strong>
+                                    </p>
+
+                                    @foreach(Illuminate\Support\Facades\DB::table('participations')
+                                                                                ->join('utilisateurs', 'participations.code_user', '=', 'utilisateurs.id')
+                                                                                ->select('participations.created_at as cr', 'utilisateurs.nom', 'utilisateurs.postnom')
+                                                                                ->where('participations.code_projet','=',$projets->id)->get() as $item)
+                                        <div class="row align-items-center projects-item mb-1">
+{{--                                            <div class="col-sm-auto mb-1 mb-sm-0">--}}
+{{--                                                <div class="text-dark-gray">07:48 PM</div>--}}
+{{--                                            </div>--}}
+                                            <div class="col-sm">
+                                                <div class="card m-0">
+                                                    <div class="px-4 py-3">
+                                                        <div class="row align-items-center">
+                                                            <div class="col-md-6"
+                                                                 style="min-width: 300px">
+                                                                <div class="d-flex align-items-center">
+                                                                    <a href="#"
+                                                                       class="text-body"><strong class="text-15pt mr-2">{{$item->nom}} {{$item->postnom}}</strong></a>
+
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="col-md-3 d-flex align-items-center">
+                                                                <i class="material-icons icon-muted icon-20pt mr-2">account_circle</i>
+                                                                <a href="#"
+                                                                   class="text-body">Ajouté le {{$item->cr}}</a>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+
+
+
 
                                 </div>
 

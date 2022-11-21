@@ -30,6 +30,7 @@ Route::group(['middleware'=>['AuthCheck']], function (){
     Route::get('/projet/create', [ProjetController::class, 'create']);
     Route::get('/projet/invitation', [ProjetController::class, 'invitation']);
     Route::get('/projet/participation', [ProjetController::class, 'participation']);
+    Route::get('/projet/detail/{id}', [ProjetController::class, 'detail']);
     Route::post('/projet/update', [ProjetController::class, 'update']);
     Route::get('/projet/update/{id}', [ProjetController::class, 'edit']);
     Route::get('/projet/list/{user}', [ProjetController::class, 'projetbyuser'])->name('projetbyuser');

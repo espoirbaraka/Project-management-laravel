@@ -58,7 +58,7 @@ class ProjetController extends Controller
         $invitations = DB::table('participations')
                         ->join('projets', 'participations.code_projet', '=', 'projets.id')
                         ->join('utilisateurs', 'projets.created_by', '=', 'utilisateurs.id')
-                        ->select('projets.*', 'participations.created_at as cr', 'utilisateurs.*')
+                        ->select('projets.*', 'participations.created_at as cr', 'utilisateurs.nom', 'utilisateurs.postnom')
                         ->where('participations.code_user','=',session('LoggedUser'))->get();
         return view('projet/invitation', $data, compact('invitations'));
     }
@@ -74,6 +74,12 @@ class ProjetController extends Controller
         return view('projet/participation', $data, compact('projets'));
     }
 
+    public function detail($id)
+    {
+        $data = ['LoggedUserInfo'=>Utilisateur::where('id','=',session('LoggedUser'))->first()];
+        $projets = Projet::where("id",$id)->get()->first();
+        return view("projet.detail", $data, compact('projets'));
+    }
 
     /**
      * Display the specified resource.

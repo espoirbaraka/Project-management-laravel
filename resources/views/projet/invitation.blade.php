@@ -119,18 +119,14 @@
                                                         <td style="min-width:140px">
                                                             <div class=""><i
                                                                     class="material-icons icon-16pt text-muted-light mr-1">today</i>
-                                                                <small>05-05-2019</small></div>
+                                                                <small>{{$item->cr}}</small></div>
                                                         </td>
                                                         <td class="text-center">
-                                                            <i class="material-icons icon-16pt text-muted mr-1">account_circle</i>
-                                                            <a href="#">1</a>
-                                                        </td>
-                                                        <td class="text-center">3% <i
-                                                                class="material-icons icon-16pt text-success">arrow_upward</i>
-                                                        </td>
-                                                        <td class="text-center">1</td>
-                                                        <td class="text-right"><strong>$32,124</strong></td>
-                                                        <td><a href="#"
+                                                            <div class=""><i
+                                                                    class="material-icons icon-16pt text-muted-light mr-1">pin_drop</i>
+                                                                <small>{{$item->localisation}}</small></div>
+                                                        <td class="text-right"><strong>{{$item->budget}} $</strong></td>
+                                                       <td><a href="#"
                                                                class="btn btn-sm btn-link"><i
                                                                     class="material-icons icon-16pt">arrow_forward</i></a>
                                                         </td>

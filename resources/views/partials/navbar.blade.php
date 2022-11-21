@@ -19,7 +19,7 @@
                 <ul class="nav flex-column flex-nowrap sidebar-menu js-sidebar-mini-tabs"
                     role="tablist">
 
-                    <li class="sidebar-menu-item active"
+                    <li class="sidebar-menu-item"
                         data-toggle="tooltip"
                         data-title="Dashboard"
                         data-placement="right"
@@ -54,6 +54,32 @@
                            href="/projet/list">
                             <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">list</i>
                             <span class="sidebar-menu-text">Mes projets</span>
+                        </a>
+                    </li>
+
+                    <li class="sidebar-menu-item"
+                        data-toggle="tooltip"
+                        data-title="Mes participations"
+                        data-placement="right"
+                        data-container="body"
+                        data-boundary="window">
+                        <a class="sidebar-menu-button"
+                           href="/projet/participation">
+                            <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">list</i>
+                            <span class="sidebar-menu-text">Mes participations</span>
+                        </a>
+                    </li>
+
+                    <li class="sidebar-menu-item"
+                        data-toggle="tooltip"
+                        data-title="Mes invitations"
+                        data-placement="right"
+                        data-container="body"
+                        data-boundary="window">
+                        <a class="sidebar-menu-button"
+                           href="/projet/invitation">
+                            <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">message</i>
+                            <span class="sidebar-menu-text">Mes invitations</span>
                         </a>
                     </li>
 

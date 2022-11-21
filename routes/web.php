@@ -28,6 +28,8 @@ Route::group(['middleware'=>['AuthCheck']], function (){
     Route::get('/dashboard', [MainController::class, 'dashboard'])->name('dashboard');
 
     Route::get('/projet/create', [ProjetController::class, 'create']);
+    Route::get('/projet/invitation', [ProjetController::class, 'invitation']);
+    Route::get('/projet/participation', [ProjetController::class, 'participation']);
     Route::post('/projet/update', [ProjetController::class, 'update']);
     Route::get('/projet/update/{id}', [ProjetController::class, 'edit']);
     Route::get('/projet/list/{user}', [ProjetController::class, 'projetbyuser'])->name('projetbyuser');

@@ -69,7 +69,7 @@
                                                                             class="badge badge-light-gray ml-auto">En attente</span>
                                                                     </p>
 
-                                                                    
+
                                                                     <div class="media align-items-center">
                                                                         <div class="media-left mr-2">
 

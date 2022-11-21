@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Participation;
 use App\Models\Tache;
 use Illuminate\Http\Request;
 use App\Models\Projet;
@@ -24,15 +25,6 @@ class ProjetController extends Controller
         }
         return view('projet/projets', $data, compact('projets', 'taches'));
     }
-
-    public function projetbyuser($user)
-    {
-        $data = ['LoggedUserInfo'=>Utilisateur::where('id','=',session('LoggedUser'))->first()];
-        $projet = Projet::find($user);
-        return back($data)->with('projet/projetbyuser', $projet);
-
-    }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -62,6 +54,20 @@ class ProjetController extends Controller
         Projet::create($input);
         return redirect('projet/list')->with('flash_message', 'Projet créé !!!');
     }
+
+    public function invitation()
+    {
+        $data = ['LoggedUserInfo'=>Utilisateur::where('id','=',session('LoggedUser'))->first()];
+        $invitations = Participation::where('code_user','=',session('LoggedUser'))->get();
+        return view('projet/invitation', $data, compact('invitations'));
+    }
+
+    public function participation()
+    {
+        $data = ['LoggedUserInfo'=>Utilisateur::where('id','=',session('LoggedUser'))->first()];
+        return view('projet/participation', $data);
+    }
+
 
     /**
      * Display the specified resource.

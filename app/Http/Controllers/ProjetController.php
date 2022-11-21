@@ -7,6 +7,7 @@ use App\Models\Tache;
 use Illuminate\Http\Request;
 use App\Models\Projet;
 use App\Models\Utilisateur;
+use Illuminate\Support\Facades\DB;
 
 class ProjetController extends Controller
 {
@@ -58,7 +59,11 @@ class ProjetController extends Controller
     public function invitation()
     {
         $data = ['LoggedUserInfo'=>Utilisateur::where('id','=',session('LoggedUser'))->first()];
-        $invitations = Participation::where('code_user','=',session('LoggedUser'))->get();
+        $invitations = DB::table('participations')
+                        ->join('projets', 'participations.code_projet', '=', 'projets.id')
+                        ->join('utilisateurs', 'projets.created_by', '=', 'utilisateurs.id')
+                        ->select('projets.*', 'participations.created_at as cr', 'utilisateurs.*')
+                        ->where('participations.code_user','=',session('LoggedUser'))->get();
         return view('projet/invitation', $data, compact('invitations'));
     }
 

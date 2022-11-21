@@ -54,8 +54,9 @@
                                                             <h4 class="card-header__title">{{$item->designation}}</h4>
                                                         </div>
                                                         <div class="float-right">
-                                                            <a href="/projet/update/{{$item->id}}"><i class="fa fa-edit" style="color: #fc6c07;"></i></a>
-                                                            {{--                                                        <a href="/projet/delete/{{$item->id}}"><i class="fa fa-trash" style="color: red;"></i></a>--}}
+                                                            <small class="text-danger"><i
+                                                                    class="material-icons icon-16pt mr-1">person</i>
+                                                                {{$item->nom}} {{$item->postnom}}</small>
                                                         </div>
                                                     </div>
                                                     <div class="card-body p-2">
@@ -96,14 +97,7 @@
 
 
                                                         </div>
-                                                        <div style="float: left;">
-                                                            <a href="/tache/create/{{$item->id}}"
-                                                               class="btn btn-link text-muted btn-block mt-2">+ Tache</a>
-                                                        </div>
-                                                        <div style="float: right;">
-                                                            <a href="/participation/create/{{$item->id}}"
-                                                               class="btn btn-link text-muted btn-block mt-2">+ Participant</a>
-                                                        </div>
+                                                        
 
                                                     </div>
                                                 </div>

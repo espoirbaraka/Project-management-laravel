@@ -18,13 +18,9 @@ class ProjetController extends Controller
      */
     public function index(Request $request)
     {
-
         $data = ['LoggedUserInfo'=>Utilisateur::where('id','=',session('LoggedUser'))->first()];
         $projets = Projet::where('created_by','=',session('LoggedUser'))->get();
-        foreach ($projets as $row){
-            $taches = Tache::where('codeprojet','=',$row->id)->get();
-        }
-        return view('projet/projets', $data, compact('projets', 'taches'));
+        return view('projet/projets', $data, compact('projets'));
     }
     /**
      * Show the form for creating a new resource.
@@ -70,7 +66,12 @@ class ProjetController extends Controller
     public function participation()
     {
         $data = ['LoggedUserInfo'=>Utilisateur::where('id','=',session('LoggedUser'))->first()];
-        return view('projet/participation', $data);
+        $projets = DB::table('participations')
+                        ->join('projets', 'participations.code_projet', '=', 'projets.id')
+                        ->join('utilisateurs', 'projets.created_by', '=', 'utilisateurs.id')
+                        ->select('projets.*', 'participations.created_at as cr', 'utilisateurs.*')
+                        ->where('participations.code_user','=',session('LoggedUser'))->get();
+        return view('projet/participation', $data, compact('projets'));
     }
 
 

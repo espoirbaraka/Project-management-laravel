@@ -140,11 +140,7 @@
                                             </table>
                                         </div>
 
-                                        <div class="card-body text-right">
-                                            15 <span class="text-muted">of 1,430</span> <a href="#"
-                                                                                           class="text-muted-light"><i
-                                                    class="material-icons ml-1">arrow_forward</i></a>
-                                        </div>
+
 
                                     </div>
                                 </div>

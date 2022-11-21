@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  sam. 19 nov. 2022 à 12:40
+-- Généré le :  lun. 21 nov. 2022 à 11:19
 -- Version du serveur :  10.4.8-MariaDB
 -- Version de PHP :  7.3.10
 
@@ -94,6 +94,14 @@ CREATE TABLE `participations` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Déchargement des données de la table `participations`
+--
+
+INSERT INTO `participations` (`id`, `code_projet`, `code_user`, `created_at`, `updated_at`) VALUES
+(6, 5, 3, '2022-11-21 09:14:42', '2022-11-21 09:14:42'),
+(7, 5, 2, '2022-11-21 09:15:01', '2022-11-21 09:15:01');
+
 -- --------------------------------------------------------
 
 --
@@ -149,7 +157,10 @@ CREATE TABLE `projets` (
 --
 
 INSERT INTO `projets` (`id`, `designation`, `budget`, `localisation`, `bailleur`, `datedebut`, `datefin`, `created_by`, `statut`, `created_at`, `updated_at`) VALUES
-(1, 'Projet CODEPO', 1000.00, 'Goma', 'ISIG-ULB', '2022-11-10 00:00:00', '2022-11-30 00:00:00', 1, 0, '2022-11-15 05:42:35', '2022-11-15 05:42:35');
+(1, 'Projet CODEPO ISIG-ULB', 1000.00, 'Goma', 'ISIG-ULB', '2022-11-20 00:00:00', '2022-11-27 00:00:00', 1, 0, '2022-11-15 05:42:35', '2022-11-20 06:05:52'),
+(2, 'Projet UNICEF', 10000.00, 'Bukavu', 'UNICEF', '2022-11-20 00:00:00', '2022-11-30 00:00:00', 1, 0, '2022-11-19 10:53:19', '2022-11-19 10:53:19'),
+(4, 'Projet MDF', 20000.00, 'Goma', 'MDF', '2022-11-21 00:00:00', '2022-12-04 00:00:00', 1, 0, '2022-11-20 13:40:35', '2022-11-20 13:40:35'),
+(5, 'Projet ISIG', 10000.00, 'Goma', 'ISIG', '2022-11-22 00:00:00', '2022-11-30 00:00:00', 3, 0, '2022-11-21 08:10:52', '2022-11-21 08:10:52');
 
 -- --------------------------------------------------------
 
@@ -174,7 +185,12 @@ CREATE TABLE `taches` (
 --
 
 INSERT INTO `taches` (`id`, `designation`, `montant`, `datedebut`, `datefin`, `codeprojet`, `statut`, `created_at`, `updated_at`) VALUES
-(1, 'Identification des etudiants', 100.00, '2022-11-16 00:00:00', '2022-11-17 00:00:00', 1, 0, '2022-11-15 05:42:55', '2022-11-15 05:42:55');
+(2, 'Identification des acteurs', 200.00, '2022-11-21 00:00:00', '2022-11-23 00:00:00', 1, 0, '2022-11-20 12:25:56', '2022-11-20 12:25:56'),
+(3, 'Identification des places', 1000.00, '2022-11-20 00:00:00', '2022-11-22 00:00:00', 4, 0, '2022-11-20 13:41:13', '2022-11-20 13:41:13'),
+(4, 'Identification des enfants', 1000.00, '2022-11-20 00:00:00', '2022-11-22 00:00:00', 2, 0, '2022-11-20 19:10:56', '2022-11-20 19:10:56'),
+(5, 'Recensement des enfants', 1000.00, '2022-11-23 00:00:00', '2022-11-24 00:00:00', 2, 0, '2022-11-20 19:11:36', '2022-11-20 19:11:36'),
+(6, 'Identification des participants', 1000.00, '2022-11-22 00:00:00', '2022-11-23 00:00:00', 5, 0, '2022-11-21 08:11:33', '2022-11-21 08:11:33'),
+(7, 'Inscription', 1000.00, '2022-11-23 00:00:00', '2022-11-24 00:00:00', 5, 0, '2022-11-21 08:11:56', '2022-11-21 08:11:56');
 
 -- --------------------------------------------------------
 
@@ -216,7 +232,9 @@ CREATE TABLE `utilisateurs` (
 --
 
 INSERT INTO `utilisateurs` (`id`, `nom`, `postnom`, `prenom`, `email`, `password`, `organisation`, `created_at`, `updated_at`) VALUES
-(1, 'Baraka', 'Bigega', 'Espoir', 'esbarakabigega@gmail.com', '$2y$10$hini86dt9xfFG.6yaQnGJeP4ysNnRZ/9pMKh7LztjHDhbwzpKc6iC', 'ISIG-GOMA', '2022-11-15 05:41:54', '2022-11-15 05:41:54');
+(1, 'Baraka', 'Bigega', 'Espoir', 'esbarakabigega@gmail.com', '$2y$10$hini86dt9xfFG.6yaQnGJeP4ysNnRZ/9pMKh7LztjHDhbwzpKc6iC', 'ISIG-GOMA', '2022-11-15 05:41:54', '2022-11-15 05:41:54'),
+(2, 'Abio', 'Bamongoyo', 'Gaetan', 'gaetan@gmail.com', '$2y$10$D/p.SWFo.H7bA.XAqJfGyOX/TjrSmNVtEznxRd7G3qksg81XafO8.', 'ULB', '2022-11-20 11:13:16', '2022-11-20 11:13:16'),
+(3, 'Providence', 'Baraka', 'Provi', 'provi@gmail.com', '$2y$10$t9COGrm/63CINRr2mBZ8V.LlY1yBOJGEpE4lvdqwt4dvqpE1AqF2e', 'ISIG', '2022-11-21 08:08:09', '2022-11-21 08:08:09');
 
 --
 -- Index pour les tables déchargées
@@ -312,7 +330,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT pour la table `participations`
 --
 ALTER TABLE `participations`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT pour la table `personal_access_tokens`
@@ -324,13 +342,13 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT pour la table `projets`
 --
 ALTER TABLE `projets`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT pour la table `taches`
 --
 ALTER TABLE `taches`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT pour la table `users`
@@ -342,7 +360,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `utilisateurs`
 --
 ALTER TABLE `utilisateurs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

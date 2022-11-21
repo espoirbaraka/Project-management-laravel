@@ -87,6 +87,21 @@
                                                                 <a href="#"
                                                                    class="text-body">{{$item2->montant}} $</a>
                                                             </div>
+                                                            <div class="col-md-3 d-flex align-items-center">
+                                                                @if($item2->statut == 0)
+                                                                    <form method="POST" action="{{url('tache/demarrer')}}" style="float: right">
+                                                                        @csrf
+                                                                        <input name="id" type="hidden" value="{{$item2->id}}">
+                                                                        <button type="submit" class="btn btn-primary ml-3">Demarrer</button>
+                                                                    </form>
+                                                                @elseif($item2->statut == 1)
+                                                                    <form method="POST" action="{{url('tache/achever')}}" style="float: right">
+                                                                        @csrf
+                                                                        <input name="id" type="hidden" value="{{$item2->id}}">
+                                                                        <button type="submit" class="btn btn-warning ml-3">Achever</button>
+                                                                    </form>
+                                                                @endif
+                                                            </div>
 
                                                         </div>
                                                     </div>

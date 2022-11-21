@@ -39,6 +39,27 @@ class TacheController extends Controller
         return view('tache/newtache', $data, compact('projet'));
     }
 
+
+    public function demarrer(Request $request)
+    {
+        $tache = Tache::find($request->id);
+        $tache->statut = 1;
+
+        $tache->update();
+
+        return redirect()->intended('/projet/list');
+    }
+
+    public function achever(Request $request)
+    {
+        $tache = Tache::find($request->id);
+        $tache->statut = 2;
+
+        $tache->update();
+
+        return redirect()->intended('/projet/list');
+    }
+
     /**
      * Store a newly created resource in storage.
      *

@@ -56,5 +56,15 @@
                 })
             })()
         </script>
+        <script>
+            $(function(){
+                var url = window.location;
+
+                $('li.sidebar-menu-item a').filter(function() {
+                    return this.href == url;
+                }).parent().addClass('active');
+
+            });
+        </script>
     </body>
 </html>

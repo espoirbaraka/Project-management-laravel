@@ -105,14 +105,14 @@
                                                             <div class="d-flex align-items-center">
                                                                 <div class="d-flex align-items-center">
                                                                     <i class="material-icons icon-16pt mr-1 text-primary">message</i>
-                                                                    <a href="#">{{$item->designation}}</a>
+                                                                    <a href="detail/{{$item->id}}">{{$item->designation}}</a>
                                                                 </div>
 
 
                                                             </div>
                                                             <div class="d-flex align-items-center">
                                                                 <small class="text-muted"><i
-                                                                        class="material-icons icon-16pt mr-1">pin_drop</i>
+                                                                        class="material-icons icon-16pt mr-1">person</i>
                                                                     {{$item->nom}} {{$item->postnom}}</small>
                                                             </div>
                                                         </td>

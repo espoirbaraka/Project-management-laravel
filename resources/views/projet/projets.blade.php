@@ -34,6 +34,20 @@
                                                     </ol>
                                                 </nav>
                                                 <h1 class="m-0">Mes projets</h1>
+
+
+                                                @if(Session::get('success'))
+                                                    <div class="alert alert-success">
+                                                        {{Session::get('success')}}
+                                                    </div>
+                                                @endif
+
+                                                @if(Session::get('fail'))
+                                                    <div class="alert alert-danger">
+                                                        {{Session::get('fail')}}
+                                                    </div>
+                                                @endif
+
                                             </div>
 
                                         </div>
@@ -51,6 +65,13 @@
                                                 <div class="card-header card-header-sm bg-white border-primary">
                                                     <div class="float-left">
                                                         <h4 class="card-header__title">{{$item->designation}}</h4>
+                                                        @if($item->statut == 0)
+                                                            <span class="badge badge-light-gray ml-auto">En attente</span>
+                                                        @elseif($item->statut == 1)
+                                                            <span class="badge badge-success ml-auto">En cours</span>
+                                                        @elseif($item->statut == 2)
+                                                            <span class="badge badge-warning ml-auto">Achevé</span>
+                                                        @endif
                                                     </div>
                                                     <div class="float-right">
                                                         <a href="/projet/update/{{$item->id}}"><i class="fa fa-edit" style="color: #fc6c07;"></i></a>
@@ -65,8 +86,16 @@
                                                             <div class="trello-board__tasks-item card shadow-none border">
                                                                 <div class="p-3">
                                                                     <p class="m-0 d-flex align-items-center">
-                                                                        <strong>{{$item2->designation}}</strong> <span
-                                                                            class="badge badge-light-gray ml-auto">En attente</span>
+                                                                        <strong>{{$item2->designation}}</strong>
+
+                                                                        @if($item2->statut == 0)
+                                                                            <span class="badge badge-light-gray ml-auto">En attente</span>
+                                                                        @elseif($item2->statut == 1)
+                                                                            <span class="badge badge-success ml-auto">En cours</span>
+                                                                        @elseif($item2->statut == 2)
+                                                                            <span class="badge badge-warning ml-auto">Achevé</span>
+                                                                        @endif
+
                                                                     </p>
 
 
@@ -95,14 +124,28 @@
 
 
                                                     </div>
-                                                    <div style="float: left;">
-                                                        <a href="/tache/create/{{$item->id}}"
-                                                           class="btn btn-link text-muted btn-block mt-2">+ Tache</a>
-                                                    </div>
-                                                    <div style="float: right;">
-                                                        <a href="/participation/create/{{$item->id}}"
-                                                           class="btn btn-link text-muted btn-block mt-2">+ Participant</a>
-                                                    </div>
+                                                    @if($item->statut == 0)
+                                                        <div style="float: left;">
+                                                            <a href="/tache/create/{{$item->id}}"
+                                                               class="btn btn-link text-muted btn-block mt-2">+ Tache</a>
+                                                        </div>
+                                                        <div style="float: right;">
+                                                            <a href="/participation/create/{{$item->id}}"
+                                                               class="btn btn-link text-muted btn-block mt-2">+ Participant</a>
+                                                        </div>
+                                                    @elseif($item->statut == 1)
+                                                        <div style="float: left;">
+                                                            <a href="/tache/create/{{$item->id}}"
+                                                               class="btn btn-link text-muted btn-block mt-2">+ Tache</a>
+                                                        </div>
+                                                        <div style="float: right;">
+                                                            <a href="/participation/create/{{$item->id}}"
+                                                               class="btn btn-link text-muted btn-block mt-2">+ Participant</a>
+                                                        </div>
+                                                    @elseif($item->statut == 2)
+                                                        
+                                                    @endif
+
 
                                                 </div>
                                             </div>

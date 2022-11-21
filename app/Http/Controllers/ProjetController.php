@@ -126,6 +126,27 @@ class ProjetController extends Controller
         return redirect()->intended('/projet/list');
     }
 
+
+    public function demarrer(Request $request)
+    {
+        $projet = Projet::find($request->id);
+        $projet->statut = 1;
+
+        $projet->update();
+
+        return redirect()->intended('/projet/list');
+    }
+
+    public function achever(Request $request)
+    {
+        $projet = Projet::find($request->id);
+        $projet->statut = 2;
+
+        $projet->update();
+
+        return redirect()->intended('/projet/list');
+    }
+
     /**
      * Remove the specified resource from storage.
      *

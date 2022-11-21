@@ -39,7 +39,23 @@
                                         </div>
 
                                     </div>
+                                    @if($projets->created_by == $LoggedUserInfo['id'])
+                                        @if($projets->statut == 0)
+                                            <form method="POST" action="{{url('projet/demarrer')}}" style="float: right">
+                                                @csrf
+                                                <input name="id" type="hidden" value="{{$projets->id}}">
+                                                <button type="submit" class="btn btn-primary ml-3">Demarrer</button>
+                                            </form>
+                                        @elseif($projets->statut == 1)
+                                            <form method="POST" action="{{url('projet/achever')}}" style="float: right">
+                                                @csrf
+                                                <input name="id" type="hidden" value="{{$projets->id}}">
+                                                <button type="submit" class="btn btn-warning ml-3">Achever</button>
+                                            </form>
+                                        @endif
+                                    @endif
                                 </div>
+
 
 
                                 <div class="container page__container">

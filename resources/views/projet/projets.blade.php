@@ -143,7 +143,7 @@
                                                                class="btn btn-link text-muted btn-block mt-2">+ Participant</a>
                                                         </div>
                                                     @elseif($item->statut == 2)
-                                                        
+
                                                     @endif
 
 

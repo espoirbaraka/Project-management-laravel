@@ -7,16 +7,6 @@ use App\Http\Controllers\ProjetController;
 use App\Http\Controllers\TacheController;
 use App\Http\Controllers\ParticipationController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 Route::post('/save', [MainController::class, 'save'])->name('auth.pages.save');
 Route::post('/check', [MainController::class, 'check'])->name('auth.pages.check');
@@ -42,6 +32,8 @@ Route::group(['middleware'=>['AuthCheck']], function (){
     Route::get('/tache/create/{projet}', [TacheController::class, 'create'])->name('newtache');
     Route::post('/tache/save', [TacheController::class, 'store']);
     Route::get('/tache/list/{projet}', [TacheController::class, 'tachebyprojet'])->name('tachebyprojet');
+    Route::post('/tache/demarrer', [TacheController::class, 'demarrer']);
+    Route::post('/tache/achever', [TacheController::class, 'achever']);
 
     Route::get('/participation/create/{projet}', [ParticipationController::class, 'create'])->name('newtache');
     Route::post('/participation/save', [ParticipationController::class, 'store']);

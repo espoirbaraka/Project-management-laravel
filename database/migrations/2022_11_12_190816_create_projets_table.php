@@ -19,6 +19,7 @@ class CreateProjetsTable extends Migration
             $table->float('budget');
             $table->text('localisation');
             $table->text('bailleur');
+            $table->text('secteur');
             $table->dateTime('datedebut');
             $table->dateTime('datefin');
             $table->integer('created_by');

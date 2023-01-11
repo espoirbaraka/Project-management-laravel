@@ -45,7 +45,8 @@ class ProjetController extends Controller
             'designation'=>['required','string'],
             'budget'=>['required'],
             'localisation'=>['required','string'],
-            'bailleur'=>['required','string']
+            'bailleur'=>['required','string'],
+            'secteur'=>['required','string']
         ]);
         $input = $request->all();
         Projet::create($input);

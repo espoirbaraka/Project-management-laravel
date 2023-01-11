@@ -86,6 +86,15 @@
                                                 </div>
 
                                                 <div class="form-group">
+                                                    <label for="slug">Secteur d'action</label>
+                                                    <input id="slug"
+                                                           type="text"
+                                                           name="secteur"
+                                                           class="form-control"
+                                                           placeholder="">
+                                                </div>
+
+                                                <div class="form-group">
                                                     <label for="title">Date debut</label>
                                                     <input id="title"
                                                            type="date"

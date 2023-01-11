@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bailleur;
+use App\Models\Projet;
+use App\Models\Utilisateur;
 use Illuminate\Http\Request;
 
 class BailleurController extends Controller
@@ -22,9 +24,11 @@ class BailleurController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        //
+        $data = ['LoggedUserInfo'=>Utilisateur::where('id','=',session('LoggedUser'))->first()];
+        $projet = Projet::where("id",$id)->get()->first();
+        return view('bailleur/newbailleur', $data, compact('projet'));
     }
 
     /**
@@ -35,7 +39,9 @@ class BailleurController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+        Bailleur::create($input);
+        return redirect('projet/list')->with('flash_message', 'Bailleur ajouté !!!');
     }
 
     /**

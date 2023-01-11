@@ -34,7 +34,7 @@
                                                 </ol>
                                             </nav>
 
-                                            <h1 class="m-0">Ajouter un bailleur au : {$projet->designation}} </h1>
+                                            <h1 class="m-0">Ajouter un bailleur au : {{$projet->designation}} </h1>
                                         </div>
 
                                     </div>

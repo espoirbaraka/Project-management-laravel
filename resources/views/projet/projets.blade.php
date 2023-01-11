@@ -129,6 +129,10 @@
                                                             <a href="/tache/create/{{$item->id}}"
                                                                class="btn btn-link text-muted btn-block mt-2">+ Tache</a>
                                                         </div>
+                                                        <div style="float: left;">
+                                                            <a href="/bailleur/create/{{$item->id}}"
+                                                               class="btn btn-link text-muted btn-block mt-2">+ Bailleur</a>
+                                                        </div>
                                                         <div style="float: right;">
                                                             <a href="/participation/create/{{$item->id}}"
                                                                class="btn btn-link text-muted btn-block mt-2">+ Participant</a>
@@ -137,6 +141,10 @@
                                                         <div style="float: left;">
                                                             <a href="/tache/create/{{$item->id}}"
                                                                class="btn btn-link text-muted btn-block mt-2">+ Tache</a>
+                                                        </div>
+                                                        <div style="float: left;">
+                                                            <a href="/bailleur/create/{{$item->id}}"
+                                                               class="btn btn-link text-muted btn-block mt-2">+ Bailleur</a>
                                                         </div>
                                                         <div style="float: right;">
                                                             <a href="/participation/create/{{$item->id}}"

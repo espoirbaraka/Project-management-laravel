@@ -113,6 +113,49 @@
 
                                     <p class="text-dark-gray d-flex align-items-center mt-3">
                                         <i class="material-icons icon-muted mr-2">person</i>
+                                        <strong>Bailleur</strong>
+                                    </p>
+
+                                    @foreach(Illuminate\Support\Facades\DB::table('bailleurs')
+                                                                                ->join('projets', 'bailleurs.codeprojet', '=', 'projets.id')
+                                                                                ->select('bailleurs.Bailleur as bailleur')
+                                                                                ->where('projets.id','=',$projets->id)->get() as $item)
+                                        <div class="row align-items-center projects-item mb-1">
+{{--                                            <div class="col-sm-auto mb-1 mb-sm-0">--}}
+{{--                                                <div class="text-dark-gray">07:48 PM</div>--}}
+{{--                                            </div>--}}
+                                            <div class="col-sm">
+                                                <div class="card m-0">
+                                                    <div class="px-4 py-3">
+                                                        <div class="row align-items-center">
+                                                            <div class="col-md-6"
+                                                                 style="min-width: 300px">
+                                                                <div class="d-flex align-items-center">
+                                                                    <a href="#"
+                                                                       class="text-body"><strong class="text-15pt mr-2">{{$item->bailleur}} </strong></a>
+
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="col-md-3 d-flex align-items-center">
+
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+
+
+
+
+
+
+
+                                    <p class="text-dark-gray d-flex align-items-center mt-3">
+                                        <i class="material-icons icon-muted mr-2">person</i>
                                         <strong>Participant</strong>
                                     </p>
 
@@ -121,9 +164,9 @@
                                                                                 ->select('participations.created_at as cr', 'utilisateurs.nom', 'utilisateurs.postnom')
                                                                                 ->where('participations.code_projet','=',$projets->id)->get() as $item)
                                         <div class="row align-items-center projects-item mb-1">
-{{--                                            <div class="col-sm-auto mb-1 mb-sm-0">--}}
-{{--                                                <div class="text-dark-gray">07:48 PM</div>--}}
-{{--                                            </div>--}}
+                                            {{--                                            <div class="col-sm-auto mb-1 mb-sm-0">--}}
+                                            {{--                                                <div class="text-dark-gray">07:48 PM</div>--}}
+                                            {{--                                            </div>--}}
                                             <div class="col-sm">
                                                 <div class="card m-0">
                                                     <div class="px-4 py-3">

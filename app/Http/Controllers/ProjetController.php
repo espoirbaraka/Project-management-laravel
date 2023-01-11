@@ -45,7 +45,6 @@ class ProjetController extends Controller
             'designation'=>['required','string'],
             'budget'=>['required'],
             'localisation'=>['required','string'],
-            'bailleur'=>['required','string'],
             'secteur'=>['required','string']
         ]);
         $input = $request->all();
@@ -120,7 +119,6 @@ class ProjetController extends Controller
         $projet->designation = $request->designation;
         $projet->budget = $request->budget;
         $projet->localisation = $request->localisation;
-        $projet->bailleur = $request->bailleur;
 
         $projet->update();
 
@@ -142,6 +140,7 @@ class ProjetController extends Controller
     {
         $projet = Projet::find($request->id);
         $projet->statut = 2;
+        $projet->datearret = date('Y-m-d H:i:s');
 
         $projet->update();
 

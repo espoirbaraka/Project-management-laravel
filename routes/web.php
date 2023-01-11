@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ProjetController;
+use App\Http\Controllers\BailleurController;
 use App\Http\Controllers\TacheController;
 use App\Http\Controllers\ParticipationController;
 
@@ -38,4 +39,8 @@ Route::group(['middleware'=>['AuthCheck']], function (){
     Route::get('/participation/create/{projet}', [ParticipationController::class, 'create'])->name('newtache');
     Route::post('/participation/save', [ParticipationController::class, 'store']);
     Route::get('/participation/list/{projet}', [ParticipationController::class, 'tachebyprojet'])->name('tachebyprojet');
+
+    Route::get('/bailleur/create/{projet}', [BailleurController::class, 'create'])->name('newbailleur');
+    Route::post('/bailleur/save', [BailleurController::class, 'store']);
+    Route::get('/bailleur/list/{projet}', [BailleurController::class, 'bailleurbyprojet'])->name('bailleurbyprojet');
 });

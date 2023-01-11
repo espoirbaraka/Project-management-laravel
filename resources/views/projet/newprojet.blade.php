@@ -76,14 +76,7 @@
                                                            class="form-control">
                                                 </div>
 
-                                                <div class="form-group">
-                                                    <label for="title">Bailleur</label>
-                                                    <input id="title"
-                                                           type="text"
-                                                           name="bailleur"
-                                                           class="form-control"
-                                                           placeholder="">
-                                                </div>
+
 
                                                 <div class="form-group">
                                                     <label for="slug">Secteur d'action</label>

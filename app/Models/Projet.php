@@ -10,5 +10,5 @@ class Projet extends Model
     use HasFactory;
     protected $table = 'projets';
     protected $primaryKey = 'id';
-    protected $fillable = ['designation','budget','localisation','bailleur','secteur','datedebut','datefin','created_by'];
+    protected $fillable = ['designation','budget','localisation','secteur','datedebut','datefin','created_by'];
 }

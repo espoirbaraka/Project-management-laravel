@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  lun. 21 nov. 2022 à 11:19
+-- Généré le :  mer. 11 jan. 2023 à 14:14
 -- Version du serveur :  10.4.8-MariaDB
 -- Version de PHP :  7.3.10
 
@@ -40,6 +40,33 @@ CREATE TABLE `admins` (
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `bailleurs`
+--
+
+CREATE TABLE `bailleurs` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `bailleur` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `codeprojet` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `bailleurs`
+--
+
+INSERT INTO `bailleurs` (`id`, `bailleur`, `codeprojet`, `created_at`, `updated_at`) VALUES
+(1, 'ISIG-GOMA', 3, '2023-01-11 11:29:11', '2023-01-11 11:29:11'),
+(2, 'ULB', 3, '2023-01-11 11:29:23', '2023-01-11 11:29:23'),
+(3, 'FONDS SOCIAL DE LA RDC', 6, '2023-01-11 11:36:40', '2023-01-11 11:36:40'),
+(4, 'Union Europeene', 6, '2023-01-11 11:36:56', '2023-01-11 11:36:56'),
+(5, 'FONDS SOCIAL DE LA RDC', 8, '2023-01-11 11:51:21', '2023-01-11 11:51:21'),
+(6, 'Gouvernement congolais', 8, '2023-01-11 11:51:41', '2023-01-11 11:51:41'),
+(7, 'UNICEF', 9, '2023-01-11 11:54:58', '2023-01-11 11:54:58');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `failed_jobs`
 --
 
@@ -70,15 +97,16 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(28, '2014_10_12_000000_create_users_table', 1),
-(29, '2014_10_12_100000_create_password_resets_table', 1),
-(30, '2019_08_19_000000_create_failed_jobs_table', 1),
-(31, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-(32, '2022_11_12_112742_create_admins_table', 1),
-(33, '2022_11_12_113702_create_utilisateurs_table', 1),
-(34, '2022_11_12_190816_create_projets_table', 1),
-(35, '2022_11_14_211330_create_taches_table', 1),
-(36, '2022_11_14_211730_create_participations_table', 1);
+(84, '2014_10_12_000000_create_users_table', 1),
+(85, '2014_10_12_100000_create_password_resets_table', 1),
+(86, '2019_08_19_000000_create_failed_jobs_table', 1),
+(87, '2019_12_14_000001_create_personal_access_tokens_table', 1),
+(88, '2022_11_12_112742_create_admins_table', 1),
+(89, '2022_11_12_113702_create_utilisateurs_table', 1),
+(90, '2022_11_12_190816_create_projets_table', 1),
+(91, '2022_11_14_211330_create_taches_table', 1),
+(92, '2022_11_14_211730_create_participations_table', 1),
+(93, '2023_01_11_074628_create_bailleurs_table', 1);
 
 -- --------------------------------------------------------
 
@@ -99,8 +127,10 @@ CREATE TABLE `participations` (
 --
 
 INSERT INTO `participations` (`id`, `code_projet`, `code_user`, `created_at`, `updated_at`) VALUES
-(6, 5, 3, '2022-11-21 09:14:42', '2022-11-21 09:14:42'),
-(7, 5, 2, '2022-11-21 09:15:01', '2022-11-21 09:15:01');
+(1, 3, 2, '2023-01-11 11:29:47', '2023-01-11 11:29:47'),
+(2, 6, 1, '2023-01-11 11:36:19', '2023-01-11 11:36:19'),
+(3, 8, 3, '2023-01-11 11:51:58', '2023-01-11 11:51:58'),
+(4, 9, 1, '2023-01-11 11:54:46', '2023-01-11 11:54:46');
 
 -- --------------------------------------------------------
 
@@ -143,9 +173,10 @@ CREATE TABLE `projets` (
   `designation` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `budget` double(8,2) NOT NULL,
   `localisation` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `bailleur` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `secteur` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `datedebut` datetime NOT NULL,
   `datefin` datetime NOT NULL,
+  `datearret` timestamp NULL DEFAULT NULL,
   `created_by` int(11) NOT NULL,
   `statut` int(11) NOT NULL DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -156,11 +187,13 @@ CREATE TABLE `projets` (
 -- Déchargement des données de la table `projets`
 --
 
-INSERT INTO `projets` (`id`, `designation`, `budget`, `localisation`, `bailleur`, `datedebut`, `datefin`, `created_by`, `statut`, `created_at`, `updated_at`) VALUES
-(1, 'Projet CODEPO ISIG-ULB', 1000.00, 'Goma', 'ISIG-ULB', '2022-11-20 00:00:00', '2022-11-27 00:00:00', 1, 0, '2022-11-15 05:42:35', '2022-11-20 06:05:52'),
-(2, 'Projet UNICEF', 10000.00, 'Bukavu', 'UNICEF', '2022-11-20 00:00:00', '2022-11-30 00:00:00', 1, 0, '2022-11-19 10:53:19', '2022-11-19 10:53:19'),
-(4, 'Projet MDF', 20000.00, 'Goma', 'MDF', '2022-11-21 00:00:00', '2022-12-04 00:00:00', 1, 0, '2022-11-20 13:40:35', '2022-11-20 13:40:35'),
-(5, 'Projet ISIG', 10000.00, 'Goma', 'ISIG', '2022-11-22 00:00:00', '2022-11-30 00:00:00', 3, 0, '2022-11-21 08:10:52', '2022-11-21 08:10:52');
+INSERT INTO `projets` (`id`, `designation`, `budget`, `localisation`, `secteur`, `datedebut`, `datefin`, `datearret`, `created_by`, `statut`, `created_at`, `updated_at`) VALUES
+(3, 'Projet CONJOINT ISIG-ULB', 50000.00, 'Goma', 'Renforcement de la colaboration entre l\'ISIG et l\'UCB', '2023-01-15 00:00:00', '2023-01-29 00:00:00', NULL, 1, 1, '2023-01-11 11:25:26', '2023-01-11 11:27:09'),
+(4, 'Projet CODEPO', 50000.00, 'Goma', 'Projets collaboratif entre ISIG et ULB', '2023-01-12 00:00:00', '2023-01-31 00:00:00', '2023-01-11 11:52:30', 1, 2, '2023-01-11 11:28:16', '2023-01-11 11:52:30'),
+(5, 'Projet UNICEF', 100000.00, 'Goma', 'Protection de l\'enfant', '2023-01-11 00:00:00', '2023-01-29 00:00:00', '2023-01-11 11:56:37', 1, 2, '2023-01-11 11:31:31', '2023-01-11 11:56:37'),
+(6, 'Projet de plantation d\'arbre', 30000.00, 'Goma, Bukavu', 'Environnement', '2023-01-14 00:00:00', '2023-01-29 00:00:00', NULL, 3, 0, '2023-01-11 11:35:12', '2023-01-11 11:35:12'),
+(8, 'Projet CONSTRUCTION DES ROUTES', 10000.00, 'Goma', 'Développement', '2023-01-11 00:00:00', '2023-01-31 00:00:00', NULL, 1, 1, '2023-01-11 11:49:46', '2023-01-11 11:50:57'),
+(9, 'Projet PROTECTION DE L\'ENFANT CONGOLAIS', 5000.00, 'Goma', 'Protection de l\'enfant', '2023-01-11 00:00:00', '2023-01-13 00:00:00', NULL, 3, 0, '2023-01-11 11:54:01', '2023-01-11 11:54:01');
 
 -- --------------------------------------------------------
 
@@ -185,12 +218,15 @@ CREATE TABLE `taches` (
 --
 
 INSERT INTO `taches` (`id`, `designation`, `montant`, `datedebut`, `datefin`, `codeprojet`, `statut`, `created_at`, `updated_at`) VALUES
-(2, 'Identification des acteurs', 200.00, '2022-11-21 00:00:00', '2022-11-23 00:00:00', 1, 0, '2022-11-20 12:25:56', '2022-11-20 12:25:56'),
-(3, 'Identification des places', 1000.00, '2022-11-20 00:00:00', '2022-11-22 00:00:00', 4, 0, '2022-11-20 13:41:13', '2022-11-20 13:41:13'),
-(4, 'Identification des enfants', 1000.00, '2022-11-20 00:00:00', '2022-11-22 00:00:00', 2, 0, '2022-11-20 19:10:56', '2022-11-20 19:10:56'),
-(5, 'Recensement des enfants', 1000.00, '2022-11-23 00:00:00', '2022-11-24 00:00:00', 2, 0, '2022-11-20 19:11:36', '2022-11-20 19:11:36'),
-(6, 'Identification des participants', 1000.00, '2022-11-22 00:00:00', '2022-11-23 00:00:00', 5, 0, '2022-11-21 08:11:33', '2022-11-21 08:11:33'),
-(7, 'Inscription', 1000.00, '2022-11-23 00:00:00', '2022-11-24 00:00:00', 5, 0, '2022-11-21 08:11:56', '2022-11-21 08:11:56');
+(1, 'Identification des acteurs', 1000.00, '2023-01-12 00:00:00', '2023-01-13 00:00:00', 3, 2, '2023-01-11 11:25:55', '2023-01-11 11:47:40'),
+(2, 'Reunion avec les participants', 1000.00, '2023-01-14 00:00:00', '2023-01-16 00:00:00', 3, 1, '2023-01-11 11:26:58', '2023-01-11 11:47:50'),
+(3, 'Identification des participants', 500.00, '2023-01-13 00:00:00', '2023-01-14 00:00:00', 4, 1, '2023-01-11 11:30:30', '2023-01-11 11:48:13'),
+(4, 'Descente sur terrain', 1000.00, '2023-01-05 00:00:00', '2023-01-28 00:00:00', 5, 0, '2023-01-11 11:31:58', '2023-01-11 11:31:58'),
+(5, 'Achat des plantines', 1000.00, '2023-01-14 00:00:00', '2023-01-16 00:00:00', 6, 0, '2023-01-11 11:35:55', '2023-01-11 11:35:55'),
+(6, 'Redaction du budget', 500.00, '2023-01-20 00:00:00', '2023-01-21 00:00:00', 4, 0, '2023-01-11 11:48:50', '2023-01-11 11:48:50'),
+(7, 'Achat des materiaux', 1000.00, '2023-01-11 00:00:00', '2023-01-12 00:00:00', 8, 1, '2023-01-11 11:50:19', '2023-01-11 11:51:07'),
+(8, 'Deploiement des materiaux', 1000.00, '2023-01-13 00:00:00', '2023-01-14 00:00:00', 8, 0, '2023-01-11 11:50:46', '2023-01-11 11:50:46'),
+(9, 'Descente sur terrain', 500.00, '2023-01-12 00:00:00', '2023-01-13 00:00:00', 9, 0, '2023-01-11 11:54:35', '2023-01-11 11:54:35');
 
 -- --------------------------------------------------------
 
@@ -232,9 +268,9 @@ CREATE TABLE `utilisateurs` (
 --
 
 INSERT INTO `utilisateurs` (`id`, `nom`, `postnom`, `prenom`, `email`, `password`, `organisation`, `created_at`, `updated_at`) VALUES
-(1, 'Baraka', 'Bigega', 'Espoir', 'esbarakabigega@gmail.com', '$2y$10$hini86dt9xfFG.6yaQnGJeP4ysNnRZ/9pMKh7LztjHDhbwzpKc6iC', 'ISIG-GOMA', '2022-11-15 05:41:54', '2022-11-15 05:41:54'),
-(2, 'Abio', 'Bamongoyo', 'Gaetan', 'gaetan@gmail.com', '$2y$10$D/p.SWFo.H7bA.XAqJfGyOX/TjrSmNVtEznxRd7G3qksg81XafO8.', 'ULB', '2022-11-20 11:13:16', '2022-11-20 11:13:16'),
-(3, 'Providence', 'Baraka', 'Provi', 'provi@gmail.com', '$2y$10$t9COGrm/63CINRr2mBZ8V.LlY1yBOJGEpE4lvdqwt4dvqpE1AqF2e', 'ISIG', '2022-11-21 08:08:09', '2022-11-21 08:08:09');
+(1, 'Baraka', 'Bigega', 'Espoir', 'esbarakabigega@gmail.com', '$2y$10$FL6OGsdMVlxMDsVJuOigfeSZbRpP54raBt0YqxHIBX3j3XrohGBJi', 'ISIG-GOMA', '2023-01-11 08:36:31', '2023-01-11 08:36:31'),
+(2, 'Siwa', 'Mumbere', 'Carin', 'siwamumberecarin@gmail.com', '$2y$10$dfNJGgppTopblUg9gTnrZOe2G3QyjHe7zfwh3baTYMbnoA4cRopAy', 'ISIG-GOMA', '2023-01-11 11:23:39', '2023-01-11 11:23:39'),
+(3, 'Providence', 'Baraka', 'Provi', 'provi@gmail.com', '$2y$10$gZn8F.RsvdwRm/5VAS.LwOYe8KE9Mu18NNIJ.JNMr3WaoX5l.hI.O', 'OVG', '2023-01-11 11:24:05', '2023-01-11 11:24:05');
 
 --
 -- Index pour les tables déchargées
@@ -244,6 +280,12 @@ INSERT INTO `utilisateurs` (`id`, `nom`, `postnom`, `prenom`, `email`, `password
 -- Index pour la table `admins`
 --
 ALTER TABLE `admins`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `bailleurs`
+--
+ALTER TABLE `bailleurs`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -315,6 +357,12 @@ ALTER TABLE `admins`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT pour la table `bailleurs`
+--
+ALTER TABLE `bailleurs`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT pour la table `failed_jobs`
 --
 ALTER TABLE `failed_jobs`
@@ -324,13 +372,13 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT pour la table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=94;
 
 --
 -- AUTO_INCREMENT pour la table `participations`
 --
 ALTER TABLE `participations`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `personal_access_tokens`
@@ -342,13 +390,13 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT pour la table `projets`
 --
 ALTER TABLE `projets`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT pour la table `taches`
 --
 ALTER TABLE `taches`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT pour la table `users`

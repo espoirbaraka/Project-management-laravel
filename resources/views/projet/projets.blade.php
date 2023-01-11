@@ -71,6 +71,27 @@
                                                             <span class="badge badge-success ml-auto">En cours</span>
                                                         @elseif($item->statut == 2)
                                                             <span class="badge badge-warning ml-auto">Achevé</span>
+                                                            @if($item->datearret > $item->datefin)
+                                                                {{
+                                                                !! $date1 = $item->datearret, !!
+                                                               !! $date2 = $item->datefin,!!
+                                                               !! $datetime1 = new DateTime($date1),!!
+                                                               !! $datetime2 = new DateTime($date2),!!
+                                                               !! $interval = $datetime1->diff($datetime2),!!
+                                                                $days = $interval->format('%a');
+                                                                }}
+                                                                <span class="badge badge-danger ml-auto"> Fin après {{$days}} jours</span>
+                                                            @elseif($item->datearret < $item->datefin)
+                                                                {{
+                                                                !! $date1 = $item->datearret,!!
+                                                                !! $date2 = $item->datefin, !!
+                                                                !! $datetime1 = new DateTime($date1), !!
+                                                                !! $datetime2 = new DateTime($date2), !!
+                                                                !! $interval = $datetime2->diff($datetime1), !!
+                                                                $days = $interval->format('%a');
+                                                                }}
+                                                                <span class="badge badge-primary ml-auto"> Fin avant {{$days}} jours</span>
+                                                            @endif
                                                         @endif
                                                     </div>
                                                     <div class="float-right">

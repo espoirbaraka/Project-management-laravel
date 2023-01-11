@@ -80,15 +80,6 @@
                                                            value="{{$projets->localisation}}">
                                                 </div>
 
-                                                <div class="form-group">
-                                                    <label for="title">Bailleur</label>
-                                                    <input id="title"
-                                                           type="text"
-                                                           name="bailleur"
-                                                           class="form-control"
-                                                           placeholder=""
-                                                            value="{{$projets->bailleur}}">
-                                                </div>
 
 
                                             </div>

@@ -21,6 +21,7 @@ class CreateProjetsTable extends Migration
             $table->text('secteur');
             $table->dateTime('datedebut');
             $table->dateTime('datefin');
+            $table->timestamp('datearret')->nullable();
             $table->integer('created_by');
             $table->integer('statut')->default(0);
             $table->timestamps();
